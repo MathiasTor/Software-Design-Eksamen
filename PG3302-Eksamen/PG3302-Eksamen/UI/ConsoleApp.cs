@@ -10,8 +10,10 @@ namespace PG3302_Eksamen.UI
 {
     public class ConsoleApp
     {
-        
+       
+
         BookUI bookUI = new();
+        GameUI gameUI = new();
         public void RunProgram()
         {
             
@@ -41,6 +43,11 @@ namespace PG3302_Eksamen.UI
 
                     break; 
                 case 2:
+
+                    break;
+
+                    case 4:
+                    gameUI.GameMenu();
 
                     break;
 
