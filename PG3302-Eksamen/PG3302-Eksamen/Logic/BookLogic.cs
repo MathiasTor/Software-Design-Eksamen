@@ -21,6 +21,8 @@ namespace PG3302_Eksamen.Logic
             //Book bookToAdd = new Book(title, creator, releaseYear, genre, pages);
 
             Books.Add(new Book(title, creator, releaseYear, genre, pages));
+            Console.WriteLine($"Book {title} has been added!");
+
         }
 
         public void RemoveBook(String title)
