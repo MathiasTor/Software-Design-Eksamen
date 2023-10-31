@@ -1,6 +1,8 @@
-﻿using System;
+﻿using PG3302_Eksamen.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,6 +10,10 @@ namespace PG3302_Eksamen.UI
 {
     public class BookUI
     {
+
+        public BookLogic bookLogic = new();
+
+
         public void BookMenu()
         {
 
@@ -31,6 +37,11 @@ namespace PG3302_Eksamen.UI
                 case 1: DisplayBooks();
                     break;
 
+                case 2: AddBook();
+                    break;
+
+                case 4: DeleteBook();
+                    break;
             }
 
 
@@ -39,10 +50,47 @@ namespace PG3302_Eksamen.UI
         public void DisplayBooks()
         {
 
-            Console.WriteLine("test");
+            bookLogic.DisplayBooks();
+
+            BookMenu();
+        }
+
+        public void AddBook()
+        {
+           
+            Console.Write("Book title: ");
+            string title = Console.ReadLine();
+       
+            Console.Write("Book Author: ");
+            string author = Console.ReadLine();
+          
+            Console.Write("Release Year: ");
+           
+            int year = Int32.Parse(Console.ReadLine());
+
+            Console.Write("Book Genre: ");
+            string genre = Console.ReadLine();
+
+            Console.Write("Number of Pages: ");
+            int pages = Int32.Parse(Console.ReadLine());
+
+
+            bookLogic.AddBook(title, author, year, genre, pages);
+
+            bookLogic.DisplayBooks();
+            
+            BookMenu();
 
         }
 
+        public void DeleteBook()
+        {
+
+            Console.Write("Enter the Title of the Book you wish to delete: ");
+            string userInput = Console.ReadLine();
+            bookLogic.RemoveBook(userInput);
+            BookMenu();
+        }
 
     }
 }
