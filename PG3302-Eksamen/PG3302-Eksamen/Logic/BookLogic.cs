@@ -16,6 +16,7 @@ namespace PG3302_Eksamen.Logic
             Books = new List<Book>();
         }
 
+        //Add a book
         public void AddBook(string title, string creator, int releaseYear, string genre, int pages)
         {
             //Book bookToAdd = new Book(title, creator, releaseYear, genre, pages);
@@ -25,11 +26,13 @@ namespace PG3302_Eksamen.Logic
 
         }
 
+        //Remove a book
         public void RemoveBook(String title)
         {
             Books.RemoveAll(book => book.Title == title);
         }
 
+        //Print all books
         public void DisplayBooks()
         {
             foreach (Book book in Books)
@@ -38,6 +41,20 @@ namespace PG3302_Eksamen.Logic
             }
         }
 
+        //Check if book exists - returns true/false
+        public bool CheckIfBookExists(string title)
+        {
+            foreach (Book book in Books)
+            {
+                if (book.Title == title)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        //Edit book title - takes in old title and new title
         public void EditBookTitle(String title, String newTitle)
         {
            for(int i = 0; i < Books.Count; i++)
@@ -48,9 +65,5 @@ namespace PG3302_Eksamen.Logic
                 }
             }
         }
-
-
-
-
     }
 }
