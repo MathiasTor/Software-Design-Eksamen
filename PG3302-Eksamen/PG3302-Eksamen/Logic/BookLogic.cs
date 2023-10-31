@@ -10,7 +10,7 @@ namespace PG3302_Eksamen.Logic
     public class BookLogic
     {
         public List<Book> Books { get; set; }
-        public void addBook(Book book)
+        public void AddBook(Book book)
         {
             if(book == null)
             {
@@ -20,7 +20,7 @@ namespace PG3302_Eksamen.Logic
             Books.Add(book);
         }
 
-        public void removeBook(Book book)
+        public void RemoveBook(Book book)
         {
             if(book == null)
             {
@@ -30,7 +30,7 @@ namespace PG3302_Eksamen.Logic
             Books.Remove(book);
         }
 
-        public void displayBooks()
+        public void DisplayBooks()
         {
             foreach (Book book in Books)
             {
