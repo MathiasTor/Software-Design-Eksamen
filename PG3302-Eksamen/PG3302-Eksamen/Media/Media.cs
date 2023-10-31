@@ -11,16 +11,20 @@ namespace PG3302_Eksamen.Media
         //Properties
         protected string Name { get; set; }
         protected string Description { get; set; }
-        protected string Type { get; set; }
         protected DateTime Released { get; set; }
 
         //Constructor
-        public Media(string name, string description, string type, DateTime released)
+        public Media(string name, string description, DateTime released)
         {
             Name = name;
             Description = description;
-            Type = type;
             Released = released;
+        }
+
+        //ToString
+        public override string ToString()
+        {
+            return $"Name: {Name}, Description: {Description}, Released: {Released}";
         }
     }
 }
