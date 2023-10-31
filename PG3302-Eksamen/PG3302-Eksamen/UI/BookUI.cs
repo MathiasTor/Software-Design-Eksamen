@@ -60,7 +60,9 @@ namespace PG3302_Eksamen.UI
 
         private void DisplayBooks()
         {
-
+            Console.WriteLine("\n" +
+                "------------------" +
+                "\n");
             bookLogic.DisplayBooks();
 
             BookMenu();
