@@ -8,7 +8,7 @@ namespace PG3302_Eksamen
         {
 
             ConsoleApp mainMenu = new();
-            mainMenu.runProgram();             
+            mainMenu.RunProgram();             
         }
     }
 }

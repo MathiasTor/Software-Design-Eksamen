@@ -10,19 +10,21 @@ namespace PG3302_Eksamen.UI
 {
     public class ConsoleApp
     {
-       
-        public void runProgram()
+        
+        BookUI bookUI = new();
+        public void RunProgram()
         {
-
+            
             Console.WriteLine("Welcome the the Library of Media!\n" +
                 "Please choose what type of media you would like to access:\n\n" +
                 "1. Books\n" +
                 "2. Movies\n" +
                 "3. Music\n" +
                 "4. Games\n" +
-                "\nIf you would like to exit the program, please type 0.\n\n" +
-                "Write your choice here: ");
-            string? userInput = Console.ReadLine();
+                "\nIf you would like to exit the program, please type 0.\n\n");
+            Console.Write("Write your choice here: ");
+
+            string ? userInput = Console.ReadLine();
             int? userInputResult = Int32.Parse(userInput);
             switch (userInputResult)
             {
@@ -34,7 +36,8 @@ namespace PG3302_Eksamen.UI
 
                 case 1:
 
-                    Console.WriteLine("");
+                    bookUI.bookMenu();
+
 
                     break; 
                 case 2:
