@@ -10,22 +10,22 @@ namespace PG3302_Eksamen.Media
     {
 
         //Properties
-        private int Pages { get; set; }
+        private int LengthInSeconds{ get; set; }
 
         //Constructor
-        public Music(string title, string creator, int releaseYear, string genre, int pages)
+        public Music(string title, string creator, int releaseYear, string genre, int lengthInSeconds)
         {
             Title = title;
             Creator = creator;
             ReleaseYear = releaseYear;
             Genre = genre;
-            Pages = pages;
+            LengthInSeconds = lengthInSeconds;
         }
 
         //Methods
         public override string ToString()
         {
-            return $"Title: {Title}, Author: {Creator}, Release Year: {ReleaseYear}, Genre: {Genre}, Pages: {Pages}";
+            return $"Title: {Title}, artist: {Creator}, Release Year: {ReleaseYear}, Genre: {Genre}, length: {LengthInSeconds}";
         }
 
     }
