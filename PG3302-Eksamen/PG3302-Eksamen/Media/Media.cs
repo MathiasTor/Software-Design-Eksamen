@@ -8,35 +8,19 @@ namespace PG3302_Eksamen.Media
 {
     public class Media
     {
-        //Private fields
-        private string _name
-        {
-            get => _name;
-            set => _name = value;
-        }
-        private string _description
-        {
-            get => _description;
-            set => _description = value;
-        }
-        private string _type
-        {
-            get => _type;
-            set => _type = value;
-        }
-        private DateTime _released
-        {
-            get => _released; 
-            set => _released = value;
-        }
+        //Properties
+        protected string Name { get; set; }
+        protected string Description { get; set; }
+        protected string Type { get; set; }
+        protected DateTime Released { get; set; }
 
         //Constructor
         public Media(string name, string description, string type, DateTime released)
         {
-            _name = name;
-            _description = description;
-            _type = type;
-            _released = released;
+            Name = name;
+            Description = description;
+            Type = type;
+            Released = released;
         }
     }
 }
