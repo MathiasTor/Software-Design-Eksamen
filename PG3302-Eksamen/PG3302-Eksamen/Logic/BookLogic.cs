@@ -37,6 +37,17 @@ namespace PG3302_Eksamen.Logic
                 Console.WriteLine(book);
             }
         }
+        public bool CheckIfBookExists(string title)
+        {
+            foreach (Book book in Books)
+            {
+                if (book.Title == title)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         public void EditBookTitle(String title, String newTitle)
         {
@@ -48,9 +59,5 @@ namespace PG3302_Eksamen.Logic
                 }
             }
         }
-
-
-
-
     }
 }
