@@ -38,7 +38,7 @@ namespace PG3302_Eksamen.Logic
             }
         }
 
-        public void EditBook(String title, String newTitle)
+        public void EditBookTitle(String title, String newTitle)
         {
            for(int i = 0; i < Books.Count; i++)
             {
@@ -48,5 +48,9 @@ namespace PG3302_Eksamen.Logic
                 }
             }
         }
+
+
+
+
     }
 }
