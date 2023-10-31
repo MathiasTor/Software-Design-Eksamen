@@ -6,13 +6,11 @@ namespace PG3302_Eksamen.UI
     {
 
 
-
         public BookLogic bookLogic = new();
-
+ 
 
         public void BookMenu()
         {
-
             Console.WriteLine("\n\nWelcome to the book registry\n" +
                 "Please Choose what you would like to do.\n" +
                 "1. Display books.\n" +
@@ -108,5 +106,14 @@ namespace PG3302_Eksamen.UI
             BookMenu();
         }
 
+        private void BackToMainMenu()
+        {
+
+              ConsoleApp consoleApp = new();
+              consoleApp.RunProgram();
+        
+
+        }
+      
     }
 }
