@@ -50,7 +50,7 @@ namespace PG3302_Eksamen.UI
 
         }
 
-        public void DisplayBooks()
+        private void DisplayBooks()
         {
 
             bookLogic.DisplayBooks();
@@ -58,7 +58,7 @@ namespace PG3302_Eksamen.UI
             BookMenu();
         }
 
-        public void AddBook()
+        private void AddBook()
         {
            
             Console.Write("Book title: ");
@@ -87,12 +87,17 @@ namespace PG3302_Eksamen.UI
         }
 
 
-        public void EditBook()
+        private void EditBook()
         {
-            bookLogic.EditBook();
+            Console.Write("Enter the title of the book you wish to edit: ");
+            string? oldTitle = Console.ReadLine();
+            Console.Write("Enter the new title. ");
+            string? newTitle = Console.ReadLine();
+            bookLogic.EditBook(oldTitle, newTitle);
+            BookMenu();
         }
 
-        public void DeleteBook()
+        private void DeleteBook()
         {
 
             Console.Write("Enter the Title of the Book you wish to delete: ");
