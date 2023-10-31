@@ -1,5 +1,4 @@
 using NUnit.Framework.Internal;
-using PG3302_Eksamen;
 using PG3302_Eksamen.Logic;
 namespace PG3302_Eksamen_Tests
 {

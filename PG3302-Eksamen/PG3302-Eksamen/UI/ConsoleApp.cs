@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PG3302_Eksamen.UI
+﻿namespace PG3302_Eksamen.UI
 {
     public class ConsoleApp
     {
