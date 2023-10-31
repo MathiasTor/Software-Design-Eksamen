@@ -1,10 +1,4 @@
 ﻿using PG3302_Eksamen.Logic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PG3302_Eksamen.UI
 {
@@ -60,7 +54,9 @@ namespace PG3302_Eksamen.UI
 
         private void DisplayBooks()
         {
-
+            Console.WriteLine("\n" +
+                "------------------" +
+                "\n");
             bookLogic.DisplayBooks();
 
             BookMenu();
