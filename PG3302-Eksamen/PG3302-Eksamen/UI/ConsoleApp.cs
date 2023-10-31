@@ -42,10 +42,12 @@ namespace PG3302_Eksamen.UI
                     break;
 
                 case 2:
-
                     break;
 
-                    case 4:
+                case 3:
+                    break;
+
+                case 4:
                     gameUI.GameMenu();
 
                     break;
