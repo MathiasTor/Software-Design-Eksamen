@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace PG3302_Eksamen.UI
 {
     public class GameUI
-    {
+    {       
         
         public GameLogic gameLogic = new();
         public void GameMenu()
@@ -80,7 +80,7 @@ namespace PG3302_Eksamen.UI
             Console.Write("Game Genre: ");
             string genre = Console.ReadLine();
             
-            Console.WriteLine("Game Platform: ");
+            Console.Write("Game Platform: ");
             string platform = Console.ReadLine();
 
             gameLogic.AddGame(title, creator, releaseYear, genre, platform);

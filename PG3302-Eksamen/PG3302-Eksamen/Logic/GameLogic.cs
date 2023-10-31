@@ -37,7 +37,7 @@ namespace PG3302_Eksamen.Logic
         
         //check if the game exists - return true/false
 
-        public bool CheckIfBookExists(string title)
+        public bool CheckIfGameExists(string title)
         {
             foreach (Game game in Games)
             {
