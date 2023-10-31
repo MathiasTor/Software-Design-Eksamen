@@ -41,6 +41,10 @@ namespace PG3302_Eksamen.UI
                 case 4: DeleteBook();
                     break;
 
+                case 9: BackToMainMenu();
+                    break;
+                       
+
                 case 0:
                     break;
 
