@@ -39,9 +39,8 @@ namespace PG3302_Eksamen.UI
                 case 1:
 
                     bookUI.BookMenu();
+                    break;
 
-
-                    break; 
                 case 2:
 
                     break;

@@ -11,6 +11,8 @@ namespace PG3302_Eksamen.UI
     public class BookUI
     {
 
+
+
         public BookLogic bookLogic = new();
 
 
@@ -29,6 +31,7 @@ namespace PG3302_Eksamen.UI
 
             Console.Write("\nPlease enter your input here: ");
             
+            
             String? userInput = Console.ReadLine();
             int? userInputResult = Int32.Parse(userInput);
 
@@ -45,9 +48,14 @@ namespace PG3302_Eksamen.UI
 
                 case 4: DeleteBook();
                     break;
-            }
 
+                case 0:
+                    break;
 
+                default: Console.WriteLine("Invalid input! (1,2,3,4,0)");
+                        BookMenu();
+                        break;
+            } 
         }
 
         private void DisplayBooks()
@@ -77,7 +85,6 @@ namespace PG3302_Eksamen.UI
             Console.Write("Number of Pages: ");
             int pages = Int32.Parse(Console.ReadLine());
 
-
             bookLogic.AddBook(title, author, year, genre, pages);
 
             bookLogic.DisplayBooks();
@@ -93,13 +100,12 @@ namespace PG3302_Eksamen.UI
             string? oldTitle = Console.ReadLine();
             Console.Write("Enter the new title. ");
             string? newTitle = Console.ReadLine();
-            bookLogic.EditBook(oldTitle, newTitle);
+            bookLogic.EditBookTitle(oldTitle, newTitle);
             BookMenu();
         }
 
         private void DeleteBook()
         {
-
             Console.Write("Enter the Title of the Book you wish to delete: ");
             string userInput = Console.ReadLine();
             bookLogic.RemoveBook(userInput);

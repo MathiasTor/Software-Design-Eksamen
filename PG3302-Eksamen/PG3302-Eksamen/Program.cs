@@ -15,7 +15,10 @@ namespace PG3302_Eksamen
 
 
             ConsoleApp mainMenu = new();
-            mainMenu.RunProgram();             
+            mainMenu.RunProgram();     
+            
+            
+
         }
     }
 }
