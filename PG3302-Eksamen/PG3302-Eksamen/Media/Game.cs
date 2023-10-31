@@ -10,7 +10,7 @@ namespace PG3302_Eksamen.Media
     public class Game : Media
     {
         //Properties
-        private string Platform { get; set; }
+        private string? Platform { get; set; }
 
         //Constructor
         public Game(string title, string creator, int releaseYear, string genre, string platform)
@@ -27,6 +27,5 @@ namespace PG3302_Eksamen.Media
         {
             return $"Title: {Title}, Game-Studio: {Creator}, Release Year: {ReleaseYear}, Genre: {Genre}, Platform: {Platform}";
         }
-        
     }
 }
