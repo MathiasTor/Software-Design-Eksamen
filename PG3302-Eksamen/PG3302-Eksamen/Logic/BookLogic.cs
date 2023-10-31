@@ -38,9 +38,15 @@ namespace PG3302_Eksamen.Logic
             }
         }
 
-        public void EditBook()
+        public void EditBook(String title, String newTitle)
         {
-
+           for(int i = 0; i < Books.Count; i++)
+            {
+                if (Books[i].Title == title)
+                {
+                    Books[i].Title = newTitle;
+                }
+            }
         }
     }
 }
