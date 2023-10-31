@@ -1,4 +1,5 @@
-﻿using PG3302_Eksamen.UI;
+﻿using PG3302_Eksamen.Logic;
+using PG3302_Eksamen.UI;
 
 namespace PG3302_Eksamen
 {
@@ -8,7 +9,10 @@ namespace PG3302_Eksamen
         {
 
             ConsoleApp mainMenu = new();
-            mainMenu.RunProgram();             
+            mainMenu.RunProgram();     
+            
+            
+
         }
     }
 }
