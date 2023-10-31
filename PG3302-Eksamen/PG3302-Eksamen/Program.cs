@@ -1,10 +1,14 @@
-﻿namespace PG3302_Eksamen
+﻿using PG3302_Eksamen.UI;
+
+namespace PG3302_Eksamen
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+
+            ConsoleApp mainMenu = new();
+            mainMenu.runProgram();             
         }
     }
 }
