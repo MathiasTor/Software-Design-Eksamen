@@ -8,11 +8,12 @@ namespace PG3302_Eksamen.UI
 {
     public class BookUI
     {
-        public void bookMenu()
+        public void BookMenu()
         {
+
             Console.WriteLine("\n\nWelcome to the book registry\n" +
                 "Please Choose what you would like to do.\n" +
-                "1. Display all books.\n" +
+                "1. Display books.\n" +
                 "2. Add a new book.\n" +
                 "3. Edit existing book.\n" +
                 "4. Delete a book.\n\n" +
@@ -20,18 +21,26 @@ namespace PG3302_Eksamen.UI
                 "9. Back to Main Menu\n" +
                 "0. To exit");
 
-            Console.Write("");
-
+            Console.Write("\nPlease enter your input here: ");
+            
             String? userInput = Console.ReadLine();
             int? userInputResult = Int32.Parse(userInput);
 
+            switch (userInputResult)
+            {
+                case 1: DisplayBooks();
+                    break;
+
+            }
 
 
         }
 
-        public void displayAllBooks()
+        public void DisplayBooks()
         {
+
             Console.WriteLine("test");
+
         }
 
 

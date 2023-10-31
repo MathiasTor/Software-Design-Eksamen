@@ -36,7 +36,7 @@ namespace PG3302_Eksamen.UI
 
                 case 1:
 
-                    bookUI.bookMenu();
+                    bookUI.BookMenu();
 
 
                     break; 
@@ -46,11 +46,7 @@ namespace PG3302_Eksamen.UI
 
             }
 
-     
-
         }
-
-
 
     }
 }
