@@ -14,6 +14,11 @@ namespace PG3302_Eksamen.Logic
         public BookLogic()
         {
             Books = new List<Book>();
+
+            //Sample-data - for testing purposes
+            AddBook("Harry Potter", "J.K. Rowling", 1997, "Fantasy", 300);
+            AddBook("The Lord of the Rings", "J.R.R. Tolkien", 1954, "Fantasy", 500);
+            AddBook("The Hobbit", "J.R.R. Tolkien", 1937, "Fantasy", 300);
         }
 
         //Add a book
