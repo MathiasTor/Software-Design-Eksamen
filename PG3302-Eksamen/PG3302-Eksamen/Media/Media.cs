@@ -6,25 +6,13 @@ using System.Threading.Tasks;
 
 namespace PG3302_Eksamen.Media
 {
-    public class Media
+    public abstract class Media
     {
         //Properties
-        protected string Name { get; set; }
-        protected string Description { get; set; }
-        protected DateTime Released { get; set; }
+        public string Title { get; set; }
+        public string Author { get; set; }
+        public int ReleaseYear { get; set; }
+        public string Genre { get; set; }
 
-        //Constructor
-        public Media(string name, string description, DateTime released)
-        {
-            Name = name;
-            Description = description;
-            Released = released;
-        }
-
-        //ToString
-        public override string ToString()
-        {
-            return $"Name: {Name}, Description: {Description}, Released: {Released}";
-        }
     }
 }
