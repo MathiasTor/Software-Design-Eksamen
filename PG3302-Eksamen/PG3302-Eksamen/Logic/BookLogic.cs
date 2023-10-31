@@ -37,5 +37,10 @@ namespace PG3302_Eksamen.Logic
                 Console.WriteLine(book);
             }
         }
+
+        public void EditBook()
+        {
+
+        }
     }
 }

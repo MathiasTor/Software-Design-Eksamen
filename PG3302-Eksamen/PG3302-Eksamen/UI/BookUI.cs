@@ -40,6 +40,9 @@ namespace PG3302_Eksamen.UI
                 case 2: AddBook();
                     break;
 
+                case 3: EditBook();
+                    break;
+
                 case 4: DeleteBook();
                     break;
             }
@@ -81,6 +84,12 @@ namespace PG3302_Eksamen.UI
             
             BookMenu();
 
+        }
+
+
+        public void EditBook()
+        {
+            bookLogic.EditBook();
         }
 
         public void DeleteBook()
