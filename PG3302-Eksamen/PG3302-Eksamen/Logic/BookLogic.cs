@@ -10,24 +10,16 @@ namespace PG3302_Eksamen.Logic
     public class BookLogic
     {
         public List<Book> Books { get; set; }
-        public void AddBook(Book book)
+        public void AddBook(string title, string creator, int releaseYear, string genre, int pages)
         {
-            if(book == null)
-            {
-                throw new ArgumentNullException("Book is null");
-            }
+            Book bookToAdd = new Book(title, creator, releaseYear, genre, pages);
 
-            Books.Add(book);
+            Books.Add(bookToAdd);
         }
 
-        public void RemoveBook(Book book)
+        public void RemoveBook(String title)
         {
-            if(book == null)
-            {
-                throw new ArgumentNullException("Book is null");
-            }
-
-            Books.Remove(book);
+            Books.RemoveAll(book => book.Title == title);
         }
 
         public void DisplayBooks()
