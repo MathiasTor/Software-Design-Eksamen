@@ -1,4 +1,6 @@
-﻿namespace PG3302_Eksamen.UI
+﻿using PG3302_Eksamen.Media;
+
+namespace PG3302_Eksamen.UI
 {
     public class ConsoleApp
     {
@@ -6,6 +8,7 @@
 
         BookUI bookUI = new();
         GameUI gameUI = new();
+        MusicUI musicUI = new();
         public void RunProgram()
         {
             
@@ -36,6 +39,8 @@
                     break;
 
                 case 3:
+                    
+                    musicUI.MusicMenu();
                     break;
 
                 case 4:
