@@ -7,7 +7,7 @@ namespace PG3302_Eksamen.Logic
     public class BookLogic
     {
         public List<Book> Books { get; set; }
-
+        DbLogic DbLogic = new();
 
         public BookLogic()
         {
@@ -21,16 +21,8 @@ namespace PG3302_Eksamen.Logic
 
             Books.Add(bookToAdd);
             Console.WriteLine($"Book {title} has been added!");
-            var options = new DbContextOptionsBuilder<MediaDbContext>()
-            .UseSqlite(@"Data Source = .\Resources\Media.db")
-            .Options;
-
-            using (var db = new MediaDbContext(options))
-            {
-                db.Add(bookToAdd);
-                db.SaveChanges();
-            }
             
+            DbLogic.AddBookToDb(bookToAdd);
         }
 
         //Remove a book
@@ -43,20 +35,7 @@ namespace PG3302_Eksamen.Logic
         //Print all books
         public void DisplayBooks()
         {
-            var options = new DbContextOptionsBuilder<MediaDbContext>()
-            .UseSqlite(@"Data Source = .\Resources\Media.db")
-            .Options;
-
-            using (var db = new MediaDbContext(options))
-            {
-                if (db.Books != null)
-                {
-                    foreach (Book book in db.Books)
-                    {
-                        Console.WriteLine(book);
-                    }
-                }
-            }
+            DbLogic.PrintAllBooksFromDb();
             
         }
 
