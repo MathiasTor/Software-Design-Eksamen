@@ -46,7 +46,10 @@ namespace PG3302_Eksamen.UI
                 case 4:
                     DeleteGame();
                     break;
-
+                
+                case 9: BackToMainMenu();
+                    break;
+                
                 case 0:
                     break;
 
@@ -59,6 +62,9 @@ namespace PG3302_Eksamen.UI
 
         public void DisplayGames()
         {
+            Console.WriteLine("\n" + 
+                              "------------------" +
+                              "\n");
             gameLogic.DisplayGames();
 
             GameMenu();
@@ -106,6 +112,15 @@ namespace PG3302_Eksamen.UI
             string userInput = Console.ReadLine();
             gameLogic.RemoveGame(userInput);
             GameMenu();
+        }
+        
+        private void BackToMainMenu()
+        {
+
+            ConsoleApp consoleApp = new();
+            consoleApp.RunProgram();
+        
+
         }
     }
 }

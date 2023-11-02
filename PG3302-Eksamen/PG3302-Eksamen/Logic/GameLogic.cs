@@ -5,6 +5,7 @@ namespace PG3302_Eksamen.Logic
     public class GameLogic
     {
         public List<Game> Games { get; set; }
+        DbLogic DbLogic = new();
 
         public GameLogic()
         {
@@ -14,9 +15,12 @@ namespace PG3302_Eksamen.Logic
         //Add a game
         public void AddGame(string title, string creator, int releaseYear, string genre, string platform)
         {
+            Game gameToAdd = new Game(title, creator, releaseYear, genre, platform);
 
-            Games.Add(new Game(title, creator, releaseYear, genre, platform));
+            Games.Add(gameToAdd);
             Console.WriteLine($"Game {title} has been added!");
+            
+            DbLogic.AddGameToDb(gameToAdd);
 
         }
 
@@ -29,10 +33,7 @@ namespace PG3302_Eksamen.Logic
         //Print all games
         public void DisplayGames()
         {
-            foreach (Game game in Games)
-            {
-                Console.WriteLine(game);
-            }
+            DbLogic.PrintAllGamesFromDb();
         }
         
         //check if the game exists - return true/false
