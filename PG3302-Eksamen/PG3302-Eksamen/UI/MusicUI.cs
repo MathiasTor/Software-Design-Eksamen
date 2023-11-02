@@ -60,7 +60,9 @@ namespace PG3302_Eksamen.UI
 
         private void DisplaySongs()
         {
-
+            Console.WriteLine("\n" +
+                              "------------------" +
+                              "\n");
             musicLogic.DisplaySongs();
             
             MusicMenu();

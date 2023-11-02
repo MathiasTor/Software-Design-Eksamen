@@ -11,6 +11,7 @@ namespace PG3302_Eksamen.Logic
     {
 
         public List<Music> Songs { get; set; }
+        DbLogic DbLogic = new();
 
         public MusicLogic () { 
         Songs = new List<Music> ();
@@ -18,13 +19,15 @@ namespace PG3302_Eksamen.Logic
 
         }
         
-        //Add a book
+        //Add a Song
         public void AddSong(string title, string artist, int releaseYear, string genre, int lengthInSeconds)
         {
-            //Book bookToAdd = new Book(title, creator, releaseYear, genre, pages);
+            Music musicToAdd = new Music(title, artist, releaseYear, genre, lengthInSeconds);
 
-            Songs.Add(new Music(title, artist, releaseYear, genre, lengthInSeconds));
+            Songs.Add(musicToAdd);
             Console.WriteLine($"Book {title} has been added!");
+            
+            DbLogic.AddSongToDb(musicToAdd);
 
         }
         
@@ -37,10 +40,9 @@ namespace PG3302_Eksamen.Logic
         //Print all books
         public void DisplaySongs()
         {
-            foreach (Music song in Songs)
-            {
-                Console.WriteLine(song);
-            }
+            
+           DbLogic.PrintAllSongsFromDb();
+           
         }
         
         //Check if book exists - returns true/false

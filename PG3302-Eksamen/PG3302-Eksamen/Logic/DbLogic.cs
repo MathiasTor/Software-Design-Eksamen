@@ -21,6 +21,20 @@ namespace PG3302_Eksamen.Logic
 
         }
         
+        //Music
+        //Add Song to db
+        public void AddSongToDb(Music music)
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                db.Add(music);
+                db.SaveChanges();
+            }
+
+        }
+        
         //Games
         //Add Game to db
         public void AddGameToDb(Game game)
@@ -47,6 +61,23 @@ namespace PG3302_Eksamen.Logic
                     foreach (Book book in db.Books)
                     {
                         Console.WriteLine(book);
+                    }
+                }
+            }
+        }
+        
+        //Print all Songs
+        public void PrintAllSongsFromDb()
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                if (db.Music != null)
+                {
+                    foreach (Music music in db.Music)
+                    {
+                        Console.WriteLine(music);
                     }
                 }
             }
