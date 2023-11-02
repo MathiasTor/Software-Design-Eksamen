@@ -1,43 +1,63 @@
-﻿using PG3302_Eksamen.Media;
+﻿using Microsoft.EntityFrameworkCore;
+using PG3302_Eksamen.Database;
+using PG3302_Eksamen.Media;
 
 namespace PG3302_Eksamen.Logic
 {
     public class BookLogic
     {
         public List<Book> Books { get; set; }
+
+
         public BookLogic()
         {
             Books = new List<Book>();
-
-            //Sample-data - for testing purposes
-            AddBook("Harry Potter", "J.K. Rowling", 1997, "Fantasy", 300);
-            AddBook("The Lord of the Rings", "J.R.R. Tolkien", 1954, "Fantasy", 500);
-            AddBook("The Hobbit", "J.R.R. Tolkien", 1937, "Fantasy", 300);
         }
 
         //Add a book
         public void AddBook(string title, string creator, int releaseYear, string genre, int pages)
         {
-            //Book bookToAdd = new Book(title, creator, releaseYear, genre, pages);
+            Book bookToAdd = new Book(title, creator, releaseYear, genre, pages);
 
-            Books.Add(new Book(title, creator, releaseYear, genre, pages));
+            Books.Add(bookToAdd);
             Console.WriteLine($"Book {title} has been added!");
+            var options = new DbContextOptionsBuilder<MediaDbContext>()
+            .UseSqlite(@"Data Source = .\Resources\Media.db")
+            .Options;
 
+            using (var db = new MediaDbContext(options))
+            {
+                db.Add(bookToAdd);
+                db.SaveChanges();
+            }
+            
         }
 
         //Remove a book
         public void RemoveBook(String title)
         {
             Books.RemoveAll(book => book.Title == title);
+
         }
 
         //Print all books
         public void DisplayBooks()
         {
-            foreach (Book book in Books)
+            var options = new DbContextOptionsBuilder<MediaDbContext>()
+            .UseSqlite(@"Data Source = .\Resources\Media.db")
+            .Options;
+
+            using (var db = new MediaDbContext(options))
             {
-                Console.WriteLine(book);
+                if (db.Books != null)
+                {
+                    foreach (Book book in db.Books)
+                    {
+                        Console.WriteLine(book);
+                    }
+                }
             }
+            
         }
 
         //Check if book exists - returns true/false

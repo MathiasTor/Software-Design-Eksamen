@@ -1,9 +1,12 @@
-﻿namespace PG3302_Eksamen.Media
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace PG3302_Eksamen.Media
 {
+    [Table("Books")]
     public class Book : Media
     {
         //Properties
-        private int Pages { get; set; }
+        public int Pages { get; set; }
 
         //Constructor
         public Book(string title, string creator, int releaseYear, string genre, int pages)
@@ -14,6 +17,8 @@
             Genre = genre;
             Pages = pages;
         }
+
+        public Book() { }
 
         //Methods
         public override string ToString()

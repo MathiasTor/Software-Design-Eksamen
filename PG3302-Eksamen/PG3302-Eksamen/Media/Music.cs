@@ -1,10 +1,13 @@
-﻿namespace PG3302_Eksamen.Media
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace PG3302_Eksamen.Media
 {
+    [Table("Music")]
     public class Music : Media
     {
 
         //Properties
-        private int LengthInSeconds{ get; set; }
+        public int LengthInSeconds{ get; set; }
 
         //Constructor
         public Music(string title, string creator, int releaseYear, string genre, int lengthInSeconds)
@@ -15,6 +18,8 @@
             Genre = genre;
             LengthInSeconds = lengthInSeconds;
         }
+
+        public Music() { }
 
         //Methods
         public override string ToString()

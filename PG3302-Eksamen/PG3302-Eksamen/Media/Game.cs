@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -7,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace PG3302_Eksamen.Media
 {
+    [Table("Games")]
     public class Game : Media
     {
         //Properties
-        private string? Platform { get; set; }
+        public string? Platform { get; set; }
 
         //Constructor
         public Game(string title, string creator, int releaseYear, string genre, string platform)
@@ -21,6 +23,7 @@ namespace PG3302_Eksamen.Media
             Genre = genre;
             Platform = platform;
         }
+        public Game() { }
 
         //Methods
         public override string ToString()
