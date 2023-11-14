@@ -32,6 +32,9 @@ namespace PG3302_Eksamen.Logic
 
         }
 
+
+
+
         //Print all books
         public void DisplayBooks()
         {
@@ -62,6 +65,7 @@ namespace PG3302_Eksamen.Logic
                     Books[i].Title = newTitle;
                 }
             }
+            DbLogic.UpdateBook(title, newTitle);
         }
     }
 }

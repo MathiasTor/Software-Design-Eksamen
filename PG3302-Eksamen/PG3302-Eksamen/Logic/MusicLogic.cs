@@ -27,7 +27,7 @@ namespace PG3302_Eksamen.Logic
             Songs.Add(musicToAdd);
             Console.WriteLine($"Book {title} has been added!");
             
-            DbLogic.AddSongToDb(musicToAdd);
+           // DbLogic.AddSongToDb(musicToAdd);
 
         }
         
@@ -41,7 +41,7 @@ namespace PG3302_Eksamen.Logic
         public void DisplaySongs()
         {
             
-           DbLogic.PrintAllSongsFromDb();
+          // DbLogic.PrintAllSongsFromDb();
            
         }
         

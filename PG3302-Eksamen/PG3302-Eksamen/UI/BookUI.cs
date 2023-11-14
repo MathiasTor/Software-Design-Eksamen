@@ -11,7 +11,7 @@ namespace PG3302_Eksamen.UI
 
         public void BookMenu()
         {
-            Console.WriteLine("\n\nWelcome to the book registry\n" +
+            Console.WriteLine("Welcome to the book registry\n" +
                 "Please Choose what you would like to do.\n" +
                 "1. Display books.\n" +
                 "2. Add a new book.\n" +
@@ -29,7 +29,9 @@ namespace PG3302_Eksamen.UI
 
             switch (userInputResult)
             {
-                case 1: DisplayBooks();
+                
+                case 1:
+                    DisplayBooks();
                     break;
 
                 case 2: AddBook();

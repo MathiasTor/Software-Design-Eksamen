@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using PG3302_Eksamen.Database;
 using PG3302_Eksamen.Media;
 
@@ -20,10 +21,33 @@ namespace PG3302_Eksamen.Logic
             }
 
         }
+
+        public void DeleteBookFromDb(Book book)
+        {
+
+        }
         
+        public static Book? UpdateBook(string oldTitle, string newTitle)
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                Book? book = db.Books.SingleOrDefault(x => x.Title == oldTitle);
+                if(book != null)
+                {
+                    book.Title = newTitle;
+                    db.Update(book);
+                    db.SaveChanges();
+                }
+                return book;
+
+            }
+        }
+
         //Music
         //Add Song to db
-        public void AddSongToDb(Music music)
+        public void AddMusicToDb(Music music)
         {
             var options = MediaDbContextFactory.Options();
 
@@ -67,7 +91,7 @@ namespace PG3302_Eksamen.Logic
         }
         
         //Print all Songs
-        public void PrintAllSongsFromDb()
+        public void PrintAllMusicFromDb()
         {
             var options = MediaDbContextFactory.Options();
 

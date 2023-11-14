@@ -23,6 +23,8 @@ namespace PG3302_Eksamen.UI
 
             string ? userInput = Console.ReadLine();
             int? userInputResult = Int32.Parse(userInput);
+            Console.Clear();
+
             switch (userInputResult)
             {
 
