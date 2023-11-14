@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using PG3302_Eksamen.Database;
 using PG3302_Eksamen.Media;
+using System.Collections;
 
 namespace PG3302_Eksamen.Logic
 {
@@ -100,6 +101,23 @@ namespace PG3302_Eksamen.Logic
                 }
             }
         }
+
+        //Return all books as arraylist
+        public ArrayList GetAllBooks()
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                ArrayList books = new ArrayList();
+                foreach (Book book in db.Books)
+                {
+                    books.Add(book);
+                }
+                return books;
+            }
+        }
+
         
         //Print all Songs
         public void PrintAllMusicFromDb()
