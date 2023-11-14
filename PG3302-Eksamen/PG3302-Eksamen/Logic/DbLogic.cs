@@ -27,7 +27,7 @@ namespace PG3302_Eksamen.Logic
 
         }
         
-        public static Book? UpdateBook(string oldTitle, string newTitle)
+        public static Book? EditBook(string oldTitle, string newTitle)
         {
             var options = MediaDbContextFactory.Options();
 
