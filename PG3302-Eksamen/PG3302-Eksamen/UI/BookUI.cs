@@ -19,9 +19,9 @@ namespace PG3302_Eksamen.UI
                 "4. Delete a book.\n\n" +
                 "--------------------------\n\n" +
                 "9. Back to Main Menu\n" +
-                "0. To exit");
+                "\nIf you would like to exit the program, please type 0.\n\n");
 
-            Console.Write("\nPlease enter your input here: ");
+            Console.Write("Write your choice here: ");
             
             
             String? userInput = Console.ReadLine();
@@ -43,7 +43,8 @@ namespace PG3302_Eksamen.UI
                 case 4: DeleteBook();
                     break;
 
-                case 9: BackToMainMenu();
+                case 9:
+                    BackToMainMenu();
                     break;
                        
 
@@ -112,9 +113,9 @@ namespace PG3302_Eksamen.UI
             BookMenu();
         }
 
-        private void BackToMainMenu()
+        private static void BackToMainMenu()
         {
-
+                Console.Clear();
               ConsoleApp consoleApp = new();
               consoleApp.RunProgram();
         

@@ -7,7 +7,7 @@ namespace PG3302_Eksamen.Logic
     public class BookLogic
     {
         public List<Book> Books { get; set; }
-        DbLogic DbLogic = new();
+        readonly DbLogic DbLogic = new();
 
         public BookLogic()
         {
@@ -29,6 +29,8 @@ namespace PG3302_Eksamen.Logic
         public void RemoveBook(String title)
         {
             Books.RemoveAll(book => book.Title == title);
+
+            DbLogic.DeleteBookFromDb(title);
 
         }
 
@@ -65,7 +67,7 @@ namespace PG3302_Eksamen.Logic
                     Books[i].Title = newTitle;
                 }
             }
-            DbLogic.UpdateBook(title, newTitle);
+            DbLogic.EditBook(title, newTitle);
         }
     }
 }

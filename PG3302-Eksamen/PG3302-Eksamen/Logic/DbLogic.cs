@@ -22,8 +22,19 @@ namespace PG3302_Eksamen.Logic
 
         }
 
-        public void DeleteBookFromDb(Book book)
+        public static Book? DeleteBookFromDb(String title)
         {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                Book? book = db.Books.SingleOrDefault(b => b.Title == title);
+                if (book != null) { 
+                db.Remove(book);
+                db.SaveChanges();
+            }
+                return book;
+            }
 
         }
         
