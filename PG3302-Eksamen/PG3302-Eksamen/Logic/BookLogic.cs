@@ -26,15 +26,12 @@ namespace PG3302_Eksamen.Logic
         }
 
         //Remove a book
-        public void RemoveBook(String title)
+        public void RemoveBook(Book book)
         {
-            Books.RemoveAll(book => book.Title == title);
-
-            DbLogic.DeleteBookFromDb(title);
+            Books.Remove(book);
+            DbLogic.DeleteBookFromDb(book);
 
         }
-
-
 
 
         //Print all books
@@ -57,17 +54,40 @@ namespace PG3302_Eksamen.Logic
             return false;
         }
 
+
         //Edit book title - takes in old title and new title
-        public void EditBookTitle(String title, String newTitle)
+        public void EditBookTitle(Book book, String title, String newTitle)
         {
-           for(int i = 0; i < Books.Count; i++)
-            {
-                if (Books[i].Title == title)
-                {
-                    Books[i].Title = newTitle;
-                }
-            }
-            DbLogic.EditBook(title, newTitle);
+           book.Title = newTitle;
+            DbLogic.EditBookTitle(book, title, newTitle);
+        }
+
+        //Edit book author - takes in old author and new author
+        public void EditBookAuthor(Book book, String author, String newAuthor)
+        {
+            book.Creator = newAuthor;
+            DbLogic.EditBookAuthor(book, author, newAuthor);
+        }
+
+        //Edit book release year - takes in old release year and new release year
+        public void EditBookReleaseYear(Book book, int releaseYear, int newReleaseYear)
+        {
+            book.ReleaseYear = newReleaseYear;
+            DbLogic.EditBookReleaseYear(book, releaseYear, newReleaseYear);
+        }
+
+        //Edit book genre - takes in old genre and new genre
+        public void EditBookGenre(Book book, String genre, String newGenre)
+        {
+            book.Genre = newGenre;
+            DbLogic.EditBookGenre(book, genre, newGenre);
+        }
+
+        //Edit book number of pages - takes in old number of pages and new number of pages
+        public void EditBookPages(Book book, int pages, int newPages)
+        {
+            book.Pages = newPages;
+            DbLogic.EditBookPages(book, pages, newPages);
         }
     }
 }

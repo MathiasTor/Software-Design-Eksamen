@@ -8,7 +8,6 @@ namespace PG3302_Eksamen.Logic
 {
     public class DbLogic
     {
-
         //Books
         //Add book to db
         public void AddBookToDb(Book book)
@@ -23,13 +22,12 @@ namespace PG3302_Eksamen.Logic
 
         }
 
-        public static Book? DeleteBookFromDb(String title)
+        public static Book? DeleteBookFromDb(Book book)
         {
             var options = MediaDbContextFactory.Options();
 
             using (var db = new MediaDbContext(options))
             {
-                Book? book = db.Books.SingleOrDefault(b => b.Title == title);
                 if (book != null) { 
                 db.Remove(book);
                 db.SaveChanges();
@@ -39,13 +37,13 @@ namespace PG3302_Eksamen.Logic
 
         }
         
-        public static Book? EditBook(string oldTitle, string newTitle)
+        public static Book? EditBookTitle(Book book, string oldTitle, string newTitle)
         {
             var options = MediaDbContextFactory.Options();
 
             using (var db = new MediaDbContext(options))
             {
-                Book? book = db.Books.SingleOrDefault(x => x.Title == oldTitle);
+
                 if(book != null)
                 {
                     book.Title = newTitle;
@@ -54,6 +52,89 @@ namespace PG3302_Eksamen.Logic
                 }
                 return book;
 
+            }
+        }
+
+        public static Book? EditBookAuthor(Book book, string author, string newAuthor)
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                if (book != null)
+                {
+                    book.Creator = newAuthor;
+                    db.Update(book);
+                    db.SaveChanges();
+                }
+                return book;
+
+            }
+        }
+
+        public static Book? EditBookReleaseYear(Book book, int releaseYear, int newReleaseYear)
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                if (book != null)
+                {
+                    book.ReleaseYear = newReleaseYear;
+                    db.Update(book);
+                    db.SaveChanges();
+                }
+                return book;
+            }
+        }
+
+        public static Book? EditBookGenre(Book book, string genre, string newGenre)
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                if (book != null)
+                {
+                    book.Genre = newGenre;
+                    db.Update(book);
+                    db.SaveChanges();
+                }
+                return book;
+            }
+        }
+
+        public static Book? EditBookPages(Book book, int pages, int newPages)
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                if (book != null)
+                {
+                    book.Pages = newPages;
+                    db.Update(book);
+                    db.SaveChanges();
+                }
+                return book;
+            }
+        }
+
+        public ArrayList getAllBooksWithSameName(String name)
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                ArrayList books = new ArrayList();
+                foreach (Book book in db.Books)
+                {
+                    if (book.Title == name)
+                    {
+                        books.Add(book);
+                    }
+                }
+                return books;
             }
         }
 
