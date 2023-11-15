@@ -37,7 +37,7 @@ namespace PG3302_Eksamen.Logic
 
         }
         
-        public static Book? EditBookTitle(Book book, string oldTitle, string newTitle)
+        public static Book? EditBookTitle(Book book, string newTitle)
         {
             var options = MediaDbContextFactory.Options();
 
@@ -55,7 +55,7 @@ namespace PG3302_Eksamen.Logic
             }
         }
 
-        public static Book? EditBookAuthor(Book book, string author, string newAuthor)
+        public static Book? EditBookAuthor(Book book, string newAuthor)
         {
             var options = MediaDbContextFactory.Options();
 
@@ -72,7 +72,7 @@ namespace PG3302_Eksamen.Logic
             }
         }
 
-        public static Book? EditBookReleaseYear(Book book, int releaseYear, int newReleaseYear)
+        public static Book? EditBookReleaseYear(Book book, int newReleaseYear)
         {
             var options = MediaDbContextFactory.Options();
 
@@ -88,7 +88,7 @@ namespace PG3302_Eksamen.Logic
             }
         }
 
-        public static Book? EditBookGenre(Book book, string genre, string newGenre)
+        public static Book? EditBookGenre(Book book, string newGenre)
         {
             var options = MediaDbContextFactory.Options();
 
@@ -104,7 +104,7 @@ namespace PG3302_Eksamen.Logic
             }
         }
 
-        public static Book? EditBookPages(Book book, int pages, int newPages)
+        public static Book? EditBookPages(Book book, int newPages)
         {
             var options = MediaDbContextFactory.Options();
 

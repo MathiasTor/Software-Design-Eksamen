@@ -55,39 +55,39 @@ namespace PG3302_Eksamen.Logic
         }
 
 
-        //Edit book title - takes in old title and new title
-        public void EditBookTitle(Book book, String title, String newTitle)
+        //Edit book title
+        public void EditBookTitle(Book book, String newTitle)
         {
            book.Title = newTitle;
-            DbLogic.EditBookTitle(book, title, newTitle);
+            DbLogic.EditBookTitle(book, newTitle);
         }
 
-        //Edit book author - takes in old author and new author
-        public void EditBookAuthor(Book book, String author, String newAuthor)
+        //Edit book author
+        public void EditBookAuthor(Book book, String newAuthor)
         {
             book.Creator = newAuthor;
-            DbLogic.EditBookAuthor(book, author, newAuthor);
+            DbLogic.EditBookAuthor(book, newAuthor);
         }
 
-        //Edit book release year - takes in old release year and new release year
-        public void EditBookReleaseYear(Book book, int releaseYear, int newReleaseYear)
+        //Edit book release year
+        public void EditBookReleaseYear(Book book, int newReleaseYear)
         {
             book.ReleaseYear = newReleaseYear;
-            DbLogic.EditBookReleaseYear(book, releaseYear, newReleaseYear);
+            DbLogic.EditBookReleaseYear(book, newReleaseYear);
         }
 
         //Edit book genre - takes in old genre and new genre
-        public void EditBookGenre(Book book, String genre, String newGenre)
+        public void EditBookGenre(Book book, String newGenre)
         {
             book.Genre = newGenre;
-            DbLogic.EditBookGenre(book, genre, newGenre);
+            DbLogic.EditBookGenre(book, newGenre);
         }
 
-        //Edit book number of pages - takes in old number of pages and new number of pages
-        public void EditBookPages(Book book, int pages, int newPages)
+        //Edit book number of pages
+        public void EditBookPages(Book book, int newPages)
         {
             book.Pages = newPages;
-            DbLogic.EditBookPages(book, pages, newPages);
+            DbLogic.EditBookPages(book, newPages);
         }
     }
 }

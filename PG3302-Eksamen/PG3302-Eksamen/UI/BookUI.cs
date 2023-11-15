@@ -228,44 +228,54 @@ namespace PG3302_Eksamen.UI
                                    "5. Number of pages \n" +
                                    "6. Exit editing \n");
 
-            int choice = Int32.Parse(Console.ReadLine());
-
-            switch (choice)
+            try
             {
-                case 1:
-                    Console.WriteLine("Enter new title: ");
-                    string newTitle = Console.ReadLine();
-                    bookLogic.EditBookTitle(book, book.Title, newTitle);
-                    break;
-                case 2:
-                    Console.WriteLine("Enter new author: ");
-                    string newAuthor = Console.ReadLine();
-                    bookLogic.EditBookAuthor(book, book.Creator, newAuthor);
-                    break;
-                case 3:
-                    Console.WriteLine("Enter new release year: ");
-                    int newReleaseYear = Int32.Parse(Console.ReadLine());
-                    bookLogic.EditBookReleaseYear(book, book.ReleaseYear, newReleaseYear);
-                    break;
-                case 4:
-                    Console.WriteLine("Enter new genre: ");
-                    string newGenre = Console.ReadLine();
-                    bookLogic.EditBookGenre(book, book.Genre, newGenre);
-                    break;
-                case 5:
-                    Console.WriteLine("Enter new number of pages: ");
-                    int newPages = Int32.Parse(Console.ReadLine());
-                    bookLogic.EditBookPages(book, book.Pages, newPages);
-                    break;
-                case 6:
-                    Console.Clear();
-                    BookMenu();
-                    return;
-                default:
-                    Console.WriteLine("Invalid input! (1,2,3,4,5)");
-                    EditBook(book);
-                    break;
+                Console.Write("Write your choice here: ");
+                int choice = Int32.Parse(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        Console.WriteLine("Enter new title: ");
+                        string newTitle = Console.ReadLine();
+                        bookLogic.EditBookTitle(book, newTitle);
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter new author: ");
+                        string newAuthor = Console.ReadLine();
+                        bookLogic.EditBookAuthor(book, newAuthor);
+                        break;
+                    case 3:
+                        Console.WriteLine("Enter new release year: ");
+                        int newReleaseYear = Int32.Parse(Console.ReadLine());
+                        bookLogic.EditBookReleaseYear(book, newReleaseYear);
+                        break;
+                    case 4:
+                        Console.WriteLine("Enter new genre: ");
+                        string newGenre = Console.ReadLine();
+                        bookLogic.EditBookGenre(book, newGenre);
+                        break;
+                    case 5:
+                        Console.WriteLine("Enter new number of pages: ");
+                        int newPages = Int32.Parse(Console.ReadLine());
+                        bookLogic.EditBookPages(book, newPages);
+                        break;
+                    case 6:
+                        Console.Clear();
+                        BookMenu();
+                        return;
+                    default:
+                        Console.WriteLine("Invalid input! (1,2,3,4,5)");
+                        EditBook(book);
+                        break;
+                }
             }
+            catch(Exception e)
+            {
+                Console.WriteLine("Invalid input!");
+                EditBook(book);
+                return;
+            }
+            
             Console.WriteLine("Book edited!");
             Console.WriteLine("Edit more? Y/N");
             string answer = Console.ReadLine();
