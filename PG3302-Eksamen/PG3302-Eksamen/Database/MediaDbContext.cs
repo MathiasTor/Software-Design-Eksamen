@@ -18,12 +18,6 @@ namespace PG3302_Eksamen.Database
         public DbSet<SystemUser> Users { get; set; }
 
         //Constructor
-        /*
-        public MediaDbContext(DbContextOptions<MediaDbContext> options)
-            : base(options)
-        {
-            Database.EnsureCreated();
-        }*/
         public MediaDbContext()
         {
         }
@@ -31,7 +25,7 @@ namespace PG3302_Eksamen.Database
         public MediaDbContext(DbContextOptions options)
             : base(options)
         {
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
