@@ -50,7 +50,7 @@ namespace PG3302_Eksamen.UI
             Console.WriteLine("Please enter password: ");
             string? password = Console.ReadLine();
 
-            if(username == null || email == null || password == null)
+            if(username == "" || email == "" || password == "")
             {
                 Console.Clear();
                 Console.WriteLine("One or more invalid inputs, please try again");
