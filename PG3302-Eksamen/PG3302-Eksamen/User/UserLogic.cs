@@ -35,5 +35,11 @@ namespace PG3302_Eksamen.User
         {
             return userDbLogic.ValidateUser(user);
         }
+
+        //Check if username is taken
+        public bool IsUsernameTaken(SystemUser user)
+        {
+            return userDbLogic.IsUsernameTaken(user);
+        }
     }
 }

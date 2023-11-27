@@ -22,6 +22,24 @@ namespace PG3302_Eksamen.User
             }
         }
 
+        //Check if username is taken
+        public bool IsUsernameTaken(SystemUser user)
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                foreach (SystemUser u in db.Users)
+                {
+                    if (u.Name == user.Name)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
         //Remove user from db
         public void RemoveUser(SystemUser user)
         {
@@ -49,6 +67,24 @@ namespace PG3302_Eksamen.User
                     }
                 }
                 return false;
+            }
+        }
+
+        //Promote user to admin
+        public void PromoteUser(SystemUser user)
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                foreach (SystemUser u in db.Users)
+                {
+                    if (u.Name == user.Name)
+                    {
+                        u.IsAdmin = true;
+                    }
+                }
+                db.SaveChanges();
             }
         }
 

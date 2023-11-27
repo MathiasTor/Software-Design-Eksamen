@@ -60,6 +60,14 @@ namespace PG3302_Eksamen.UI
             }
 
             SystemUser user = new(username, email, password, false);
+
+            if (userLogic.IsUsernameTaken(user))
+            {
+                Console.Clear();
+                Console.WriteLine("Username is already taken, please try again");
+                RegisterUser();
+                return;
+            }
             userLogic.AddUser(user);
 
             Console.Clear();
