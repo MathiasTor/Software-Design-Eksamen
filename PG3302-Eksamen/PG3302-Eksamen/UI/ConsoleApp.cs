@@ -1,4 +1,5 @@
 ﻿using PG3302_Eksamen.Media;
+using PG3302_Eksamen.Renting;
 using PG3302_Eksamen.User;
 
 namespace PG3302_Eksamen.UI
@@ -85,7 +86,11 @@ namespace PG3302_Eksamen.UI
             {
                 Console.Clear();
                 Console.WriteLine("Login successful!");
-                MainMenu();
+
+                SystemUser user = new(username, "", password, false);
+
+                MainMenu(user);
+
             }
             else
             {
@@ -94,15 +99,16 @@ namespace PG3302_Eksamen.UI
                 LoginMenu();
             }
         }
-        public void MainMenu()
+        public void MainMenu(SystemUser user)
         {
             
-            Console.WriteLine("Welcome the the Library of Media!\n" +
+            Console.WriteLine("Welcome the the Library of Media - Admin menu!\n" +
                 "Please choose what type of media you would like to access:\n\n" +
                 "1. Books\n" +
                 "2. Movies\n" +
                 "3. Music\n" +
-                "4. Games\n" +
+                "4. Games\n\n" +
+                "5. Renting\n" +
                 "\nIf you would like to exit the program, please type 0.\n\n");
             Console.Write("Write your choice here: ");
 
@@ -132,7 +138,10 @@ namespace PG3302_Eksamen.UI
 
                 case 4:
                     gameUI.GameMenu();
-
+                    break;
+                case 5:
+                    RentMediaUI rentMediaUI = new();
+                    rentMediaUI.RentMediaMenu(user);
                     break;
 
             }
