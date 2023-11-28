@@ -47,7 +47,7 @@ namespace PG3302_Eksamen_Tests
             int ReleaseYear = 1943;
             string Genre = "fantasy";
             int Pages = 800;
-            BookLogic bookLogic = new BookLogic();
+            BookLogic bookLogic = new(new DbLogicBook());
 
             // Act
             bookLogic.AddBook(Title, Creator, ReleaseYear, Genre, Pages);
@@ -72,7 +72,7 @@ namespace PG3302_Eksamen_Tests
 
 
             Book bookTest = new Book(Title, Creator, ReleaseYear, Genre, Pages);
-            DbLogic database = new();
+            DbLogicBook database = new();
 
 
             ArrayList bookList = database.GetAllBooks();
