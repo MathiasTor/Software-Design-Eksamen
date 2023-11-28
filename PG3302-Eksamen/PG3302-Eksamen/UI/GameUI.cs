@@ -12,7 +12,7 @@ namespace PG3302_Eksamen.UI
     public class GameUI
     {       
         
-        public GameLogic gameLogic = new();
+        public GameLogic gameLogic = new(new DbLogicGame());
         private DbLogicGame dbLogicGame = new();
         public void GameMenu()
         {

@@ -10,10 +10,11 @@ namespace PG3302_Eksamen.Logic
     public class MovieLogic
     {
         List<Movie> Movies { get; set;}
-        DbLogicMovie dbLogicMovie = new();
+        readonly DbLogicMovie dbLogicMovie;
 
-        public MovieLogic()
+        public MovieLogic(DbLogicMovie dbLogicMovie)
         {
+            this.dbLogicMovie = dbLogicMovie;
             Movies = new();
         }
 

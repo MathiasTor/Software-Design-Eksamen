@@ -7,10 +7,11 @@ namespace PG3302_Eksamen.Logic
     public class BookLogic
     {
         public List<Book> Books { get; set; }
-        readonly DbLogicBook DbLogic = new();
+        readonly DbLogicBook DbLogic;
 
-        public BookLogic()
+        public BookLogic(DbLogicBook dbLogic)
         {
+            this.DbLogic = dbLogic;
             Books = new List<Book>();
         }
 

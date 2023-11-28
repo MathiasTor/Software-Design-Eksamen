@@ -11,7 +11,7 @@ namespace PG3302_Eksamen.UI
     public class MusicUI
     {
 
-        public MusicLogic musicLogic = new();
+        public MusicLogic musicLogic = new(new DbLogicMusic());
 
         public void MusicMenu()
         {
