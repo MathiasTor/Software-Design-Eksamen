@@ -6,7 +6,7 @@ namespace PG3302_Eksamen.Media
     public class Movie : Media
     {
         //Properties
-        public int LengthInMinutes { get; set; }
+        public int? LengthInMinutes { get; set; }
         
         //Constructor
         public Movie(string title, string creator, int releaseYear, string genre, int lengthInMinutes)

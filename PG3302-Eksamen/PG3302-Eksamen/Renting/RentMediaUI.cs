@@ -162,8 +162,6 @@ namespace PG3302_Eksamen.Renting
                 Console.WriteLine("Invalid input!");
                 ReturnMedia(user);
             }
-            
-
         }
 
         private void MainMenu(SystemUser user)

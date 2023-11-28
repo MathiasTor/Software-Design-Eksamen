@@ -20,7 +20,6 @@ namespace PG3302_Eksamen.Logic
                 db.Add(movie);
                 db.SaveChanges();
             }
-
         }
 
         //Delete movie from db

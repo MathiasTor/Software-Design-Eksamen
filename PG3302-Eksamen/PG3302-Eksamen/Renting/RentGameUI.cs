@@ -42,8 +42,8 @@ namespace PG3302_Eksamen.Renting
                 if (gameId == 0)
                 {
                     Console.Clear();
-                    ConsoleApp mainMenu = new();
-                    mainMenu.MainMenu(user);
+                    RentMediaUI rentMediaUI1 = new();
+                    rentMediaUI1.RentMediaMenu(user);
                     return;
                 }
 
