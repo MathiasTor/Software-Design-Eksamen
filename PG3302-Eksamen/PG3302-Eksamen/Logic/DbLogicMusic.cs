@@ -162,5 +162,17 @@ namespace PG3302_Eksamen.Logic
                 }
             }
         }
+
+        //Get all music
+        public List<Music> GetAllMusic()
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                var music = db.Music.ToList();
+                return music;
+            }
+        }
     }
 }
