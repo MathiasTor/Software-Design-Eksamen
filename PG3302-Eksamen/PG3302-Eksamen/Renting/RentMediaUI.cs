@@ -62,11 +62,18 @@ namespace PG3302_Eksamen.Renting
 
         private void ReturnMedia(SystemUser user)
         {
-            DbLogicBook dbLogic = new();
+            DbLogicBook dbLogicBook = new();
+            DbLogicMovie dbLogicMovie = new();
+            DbLogicMusic dbLogicMusic = new();
+            DbLogicGame dbLogicGame = new();
 
             RentMediaDbLogic rentMediaDbLogic = new(user);
             List<RentedMedia> rentedMedia = rentMediaDbLogic.GetRentedMedia();
-            ArrayList books = dbLogic.GetAllBooks();
+
+            ArrayList books = dbLogicBook.GetAllBooks();
+            List<Movie> movies = dbLogicMovie.GetAllMovies();
+            List<Music> music = dbLogicMusic.GetAllMusic();
+            List<Game> games = dbLogicGame.GetAllGames();
 
             Console.Clear();
             Console.WriteLine("What media would you like to return?");
@@ -91,6 +98,43 @@ namespace PG3302_Eksamen.Renting
                         }
                     }
                 }
+
+                if (rentedMedia[i].Media == "Game")
+                {
+                    foreach (Game g in games)
+                    {
+                        if (g.Id == rentedMedia[i].MediaId)
+                        {
+                            string gameTitle = g.Title;
+                            Console.WriteLine(i + 1 + ". " + gameTitle);
+                        }
+                    }
+                }
+
+                if (rentedMedia[i].Media == "Movie")
+                {
+                    foreach (Movie m in movies)
+                    {
+                        if (m.Id == rentedMedia[i].MediaId)
+                        {
+                            string movieTitle = m.Title;
+                            Console.WriteLine(i + 1 + ". " + movieTitle);
+                        }
+                    }
+                }
+
+                if (rentedMedia[i].Media == "Music")
+                {
+                    foreach (Music m in music)
+                    {
+                        if (m.Id == rentedMedia[i].MediaId)
+                        {
+                            string songTitle = m.Title;
+                            Console.WriteLine(i + 1 + ". " + songTitle);
+                        }
+                    }
+                }
+
             }
 
             Console.Write("Enter ID of media to return (Back: 0): ");
@@ -130,17 +174,20 @@ namespace PG3302_Eksamen.Renting
 
         private void RentGame(SystemUser user)
         {
-            throw new NotImplementedException();
+            RentGameUI rentGameUI = new(user);
+            rentGameUI.RentGameMenu(user);
         }
 
         private void RentMusic(SystemUser user)
         {
-            throw new NotImplementedException();
+            RentMusicUI rentMusicUI = new(user);
+            rentMusicUI.RentMusicMenu(user);
         }
 
         private void RentMovie(SystemUser user)
         {
-            throw new NotImplementedException();
+            RentMovieUI rentMovieUI = new(user);
+            rentMovieUI.RentMovieMenu(user);
         }
 
         private void RentBook(SystemUser user)

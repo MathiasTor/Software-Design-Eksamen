@@ -162,5 +162,16 @@ namespace PG3302_Eksamen.Logic
                 }
             }
         }
+
+        internal List<Movie> GetAllMovies()
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                var movies = db.Movies.ToList();
+                return movies;
+            }
+        }
     }
 }
