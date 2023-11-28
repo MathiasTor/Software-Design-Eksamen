@@ -7,7 +7,7 @@ namespace PG3302_Eksamen.Logic
     public class BookLogic
     {
         public List<Book> Books { get; set; }
-        readonly DbLogic DbLogic = new();
+        readonly DbLogicBook DbLogic = new();
 
         public BookLogic()
         {
@@ -29,7 +29,7 @@ namespace PG3302_Eksamen.Logic
         public void RemoveBook(Book book)
         {
             Books.Remove(book);
-            DbLogic.DeleteBookFromDb(book);
+            DbLogicBook.DeleteBookFromDb(book);
 
         }
 
@@ -59,35 +59,35 @@ namespace PG3302_Eksamen.Logic
         public void EditBookTitle(Book book, String newTitle)
         {
            book.Title = newTitle;
-            DbLogic.EditBookTitle(book, newTitle);
+            DbLogicBook.EditBookTitle(book, newTitle);
         }
 
         //Edit book author
         public void EditBookAuthor(Book book, String newAuthor)
         {
             book.Creator = newAuthor;
-            DbLogic.EditBookAuthor(book, newAuthor);
+            DbLogicBook.EditBookAuthor(book, newAuthor);
         }
 
         //Edit book release year
         public void EditBookReleaseYear(Book book, int newReleaseYear)
         {
             book.ReleaseYear = newReleaseYear;
-            DbLogic.EditBookReleaseYear(book, newReleaseYear);
+            DbLogicBook.EditBookReleaseYear(book, newReleaseYear);
         }
 
         //Edit book genre - takes in old genre and new genre
         public void EditBookGenre(Book book, String newGenre)
         {
             book.Genre = newGenre;
-            DbLogic.EditBookGenre(book, newGenre);
+            DbLogicBook.EditBookGenre(book, newGenre);
         }
 
         //Edit book number of pages
         public void EditBookPages(Book book, int newPages)
         {
             book.Pages = newPages;
-            DbLogic.EditBookPages(book, newPages);
+            DbLogicBook.EditBookPages(book, newPages);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace PG3302_Eksamen.Logic
 {
-    public class DbLogic
+    public class DbLogicBook
     {
         //Books
         //Add book to db
@@ -152,19 +152,6 @@ namespace PG3302_Eksamen.Logic
 
         }
         
-        //Games
-        //Add Game to db
-        public void AddGameToDb(Game game)
-        {
-            var options = MediaDbContextFactory.Options();
-
-            using (var db = new MediaDbContext(options))
-            {
-                db.Add(game);
-                db.SaveChanges();
-            }
-
-        }
 
         //Print all books
         public void PrintAllBooksFromDb()
@@ -217,21 +204,5 @@ namespace PG3302_Eksamen.Logic
             }
         }
         
-        //Print all games
-        public void PrintAllGamesFromDb()
-        {
-            var options = MediaDbContextFactory.Options();
-
-            using (var db = new MediaDbContext(options))
-            {
-                if (db.Games != null)
-                {
-                    foreach (Game game in db.Games)
-                    {
-                        Console.WriteLine(game);
-                    }
-                }
-            }
-        }
     }
 }

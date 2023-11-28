@@ -9,7 +9,7 @@ namespace PG3302_Eksamen.UI
 
 
         public BookLogic bookLogic = new();
-        private DbLogic DbLogic = new();
+        private DbLogicBook DbLogic = new();
  
 
         public void BookMenu()

@@ -11,12 +11,11 @@ namespace PG3302_Eksamen.Logic
     {
 
         public List<Music> Songs { get; set; }
-        DbLogic DbLogic = new();
+
+        DbLogicMusic DbLogic = new();
 
         public MusicLogic () { 
         Songs = new List<Music> ();
-            //Sample music/songs
-
         }
         
         //Add a Song
@@ -25,27 +24,26 @@ namespace PG3302_Eksamen.Logic
             Music musicToAdd = new Music(title, artist, releaseYear, genre, lengthInSeconds);
 
             Songs.Add(musicToAdd);
-            Console.WriteLine($"Book {title} has been added!");
-            
-           // DbLogic.AddSongToDb(musicToAdd);
+            DbLogic.AddMusicToDb(musicToAdd);
+
+            Console.WriteLine($"Song {title} has been added!");
 
         }
         
-        //Remove a book
-        public void RemoveSong(String title)
+        //Remove music
+        public void RemoveSong(Music song)
         {
-            Songs.RemoveAll(song => song.Title == title);
+            Songs.Remove(song);
+            DbLogic.DeleteMusicFromDb(song);
         }
         
-        //Print all books
+        //Print all songs
         public void DisplaySongs()
         {
-            
-          // DbLogic.PrintAllSongsFromDb();
-           
+            DbLogic.PrintAllMusicFromDb();
         }
         
-        //Check if book exists - returns true/false
+        //Check if song exists - returns true/false
         public bool CheckIfSongExists(string title)
         {
             foreach (Music song in Songs)
@@ -58,16 +56,39 @@ namespace PG3302_Eksamen.Logic
             return false;
         }
         
-        //Edit book title - takes in old title and new title
-        public void EditSongTitle(String title, String newTitle)
+        //Edit song title
+        public void EditSongTitle(Music song, String newTitle)
         {
-            for(int i = 0; i < Songs.Count; i++)
-            {
-                if (Songs[i].Title == title)
-                {
-                    Songs[i].Title = newTitle;
-                }
-            }
+            song.Title = newTitle;
+            DbLogicMusic.EditMusicTitle(song, newTitle);
+        }
+
+        //Edit song artist
+        public void EditSongArtist(Music song, String newArtist)
+        {
+            song.Creator = newArtist;
+            DbLogicMusic.EditMusicArtist(song, newArtist);
+        }
+
+        //Edit song release year
+        public void EditSongReleaseYear(Music song, int newReleaseYear)
+        {
+            song.ReleaseYear = newReleaseYear;
+            DbLogicMusic.EditMusicReleaseYear(song, newReleaseYear);
+        }
+
+        //Edit song length
+        public void EditSongLength(Music song, int newLength)
+        {
+            song.LengthInSeconds = newLength;
+            DbLogicMusic.EditMusicLength(song, newLength);
+        }
+
+        //Edit song genre
+        public void EditSongGenre(Music song, String newGenre)
+        {
+            song.Genre = newGenre;
+            DbLogicMusic.EditMusicGenre(song, newGenre);
         }
 
     }

@@ -11,6 +11,8 @@ namespace PG3302_Eksamen.UI
         BookUI bookUI = new();
         GameUI gameUI = new();
         MusicUI musicUI = new();
+        MovieUI movieUI = new();
+
         UserLogic userLogic = new();
 
         public void RunProgram()
@@ -137,6 +139,7 @@ namespace PG3302_Eksamen.UI
                     break;
 
                 case 2:
+                    movieUI.MovieMenu();
                     break;
 
                 case 3:

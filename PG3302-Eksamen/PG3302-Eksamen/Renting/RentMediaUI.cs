@@ -62,7 +62,7 @@ namespace PG3302_Eksamen.Renting
 
         private void ReturnMedia(SystemUser user)
         {
-            DbLogic dbLogic = new();
+            DbLogicBook dbLogic = new();
 
             RentMediaDbLogic rentMediaDbLogic = new(user);
             List<RentedMedia> rentedMedia = rentMediaDbLogic.GetRentedMedia();

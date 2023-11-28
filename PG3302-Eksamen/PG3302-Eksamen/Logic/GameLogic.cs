@@ -5,7 +5,7 @@ namespace PG3302_Eksamen.Logic
     public class GameLogic
     {
         public List<Game> Games { get; set; }
-        DbLogic DbLogic = new();
+        DbLogicGame DbLogic = new();
 
         public GameLogic()
         {
@@ -25,9 +25,10 @@ namespace PG3302_Eksamen.Logic
         }
 
         //Remove a Game
-        public void RemoveGame(String title)
+        public void RemoveGame(Game game)
         {
-            Games.RemoveAll(game => game.Title == title);
+            Games.Remove(game);
+            DbLogicGame.DeleteGameFromDb(game);
         }
 
         //Print all games
@@ -50,19 +51,42 @@ namespace PG3302_Eksamen.Logic
 
             return false;
         }
-        
-        //Edit game title - takes in the old title and new title
 
-        public void EditGameTitle(string title, string newTitle)
+        //Edit game title
+        public void EditGameTitle(Game game, String newTitle)
         {
-            for (int i = 0; i < Games.Count; i++)
-            {
-                if (Games[i].Title == title)
-                {
-                    Games[i].Title = newTitle;
-                }
-            }
+            game.Title = newTitle;
+            DbLogicGame.EditGameTitle(game, newTitle);
         }
+
+        //Edit game creator
+        public void EditGameCreator(Game game, String newCreator)
+        {
+            game.Creator = newCreator;
+            DbLogicGame.EditGameCreator(game, newCreator);
+        }
+
+        //Edit game release year
+        public void EditGameReleaseYear(Game game, int newReleaseYear)
+        {
+            game.ReleaseYear = newReleaseYear;
+            DbLogicGame.EditGameReleaseYear(game, newReleaseYear);
+        }
+
+        //Edit game platform
+        public void EditGamePlatform(Game game, String newPlatform)
+        {
+            game.Platform = newPlatform;
+            DbLogicGame.EditGamePlatform(game, newPlatform);
+        }
+
+        //Edit game genre
+        public void EditGameGenre(Game game, String newGenre)
+        {
+            game.Genre = newGenre;
+            DbLogicGame.EditGameGenre(game, newGenre);
+        }
+
 
     }
 }
