@@ -42,24 +42,10 @@ namespace PG3302_Eksamen.Logic
             
         }
 
-        //Check if book exists - returns true/false
-        public bool CheckIfBookExists(string title)
-        {
-            foreach (Book book in Books)
-            {
-                if (book.Title == title)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-
         //Edit book title
         public void EditBookTitle(Book book, String newTitle)
         {
-           book.Title = newTitle;
+            book.Title = newTitle;
             DbLogicBook.EditBookTitle(book, newTitle);
         }
 

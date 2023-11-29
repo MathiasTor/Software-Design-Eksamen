@@ -37,21 +37,6 @@ namespace PG3302_Eksamen.Logic
         {
             DbLogic.PrintAllGamesFromDb();
         }
-        
-        //check if the game exists - return true/false
-
-        public bool CheckIfGameExists(string title)
-        {
-            foreach (Game game in Games)
-            {
-                if (game.Title == title)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
 
         //Edit game title
         public void EditGameTitle(Game game, String newTitle)

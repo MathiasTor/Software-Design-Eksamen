@@ -42,19 +42,6 @@ namespace PG3302_Eksamen.Logic
             dbLogicMovie.PrintAllMoviesFromDb();
         }
 
-        //Check if movie exists - returns true/false
-        public bool CheckIfMovieExists(string title)
-        {
-            foreach (Movie movie in Movies)
-            {
-                if (movie.Title == title)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         //Edit movie title
         public void EditMovieTitle(Movie movie, String newTitle)
         {

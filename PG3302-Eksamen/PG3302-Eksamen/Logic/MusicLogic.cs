@@ -44,19 +44,6 @@ namespace PG3302_Eksamen.Logic
             DbLogic.PrintAllMusicFromDb();
         }
         
-        //Check if song exists - returns true/false
-        public bool CheckIfSongExists(string title)
-        {
-            foreach (Music song in Songs)
-            {
-                if (song.Title == title)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-        
         //Edit song title
         public void EditSongTitle(Music song, String newTitle)
         {
