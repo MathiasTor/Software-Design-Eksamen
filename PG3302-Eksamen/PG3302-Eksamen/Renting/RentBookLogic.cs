@@ -7,7 +7,7 @@ namespace PG3302_Eksamen.Renting
     {
         //Field
         private SystemUser _user;
-        RentBookDbLogic rentBookDbLogic = new();
+        private RentBookDbLogic _rentBookDbLogic = new();
 
         //Constructor
         public RentBookLogic(SystemUser user)
@@ -19,13 +19,13 @@ namespace PG3302_Eksamen.Renting
         //Get all books that are not rented
         public List<Book> GetRentableBooks()
         {
-            return rentBookDbLogic.GetRentableBooks();
+            return _rentBookDbLogic.GetRentableBooks();
         }
 
         //Rent book
         public void RentBook(Book book)
         {
-            rentBookDbLogic.RentBook(_user, book);
+            _rentBookDbLogic.RentBook(_user, book);
         }
 
     }
