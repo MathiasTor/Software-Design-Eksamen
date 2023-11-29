@@ -12,12 +12,12 @@ namespace PG3302_Eksamen.UI
     public class MusicUI
     {
 
-        public MusicLogic musicLogic = new(new DbLogicMusic());
-        SystemUser user;
+        public MusicLogic MusicLogic = new(new DbLogicMusic());
+        SystemUser _user;
 
         public MusicUI(SystemUser user)
         {
-            this.user = user;
+            this._user = user;
         }
 
         public void MusicMenu()
@@ -115,7 +115,7 @@ namespace PG3302_Eksamen.UI
 
         private void DeleteSong(Music song)
         {
-            musicLogic.RemoveSong(song);
+            MusicLogic.RemoveSong(song);
             Console.WriteLine($"Song {song.Title} has been deleted!");
             Console.WriteLine("Delete more? Y/N");
 
@@ -202,31 +202,31 @@ namespace PG3302_Eksamen.UI
                     case 1:
                         Console.WriteLine("Enter new title: ");
                         string newTitle = Console.ReadLine();
-                        musicLogic.EditSongTitle(songToEdit, newTitle);
+                        MusicLogic.EditSongTitle(songToEdit, newTitle);
                         break;
 
                     case 2:
                         Console.WriteLine("Enter new artist: ");
                         string newCreator = Console.ReadLine();
-                        musicLogic.EditSongArtist(songToEdit, newCreator);
+                        MusicLogic.EditSongArtist(songToEdit, newCreator);
                         break;
 
                     case 3:
                         Console.WriteLine("Enter new release year: ");
                         int newReleaseYear = Int32.Parse(Console.ReadLine());
-                        musicLogic.EditSongReleaseYear(songToEdit, newReleaseYear);
+                        MusicLogic.EditSongReleaseYear(songToEdit, newReleaseYear);
                         break;
 
                     case 4:
                         Console.WriteLine("Enter new genre: ");
                         string newGenre = Console.ReadLine();
-                        musicLogic.EditSongGenre(songToEdit, newGenre);
+                        MusicLogic.EditSongGenre(songToEdit, newGenre);
                         break;
 
                     case 5:
                         Console.WriteLine("Enter new length in seconds: ");
                         int newLengthInSeconds = Int32.Parse(Console.ReadLine());
-                        musicLogic.EditSongLength(songToEdit, newLengthInSeconds);
+                        MusicLogic.EditSongLength(songToEdit, newLengthInSeconds);
                         break;
 
                     case 9:
@@ -277,7 +277,7 @@ namespace PG3302_Eksamen.UI
             Console.WriteLine("\n" +
                               "------------------" +
                               "\n");
-            musicLogic.DisplaySongs();
+            MusicLogic.DisplaySongs();
             
             MusicMenu();
         }
@@ -301,7 +301,7 @@ namespace PG3302_Eksamen.UI
             Console.Write("Length in seconds: ");
             int lengthInSeconds = Int32.Parse(Console.ReadLine());
 
-            musicLogic.AddSong(title, creator, year, genre, lengthInSeconds);
+            MusicLogic.AddSong(title, creator, year, genre, lengthInSeconds);
             
             MusicMenu();
 
@@ -312,7 +312,7 @@ namespace PG3302_Eksamen.UI
         {
             Console.Clear();
             ConsoleApp consoleApp = new();
-            consoleApp.MainMenu(user);
+            consoleApp.MainMenu(_user);
             
         }
         

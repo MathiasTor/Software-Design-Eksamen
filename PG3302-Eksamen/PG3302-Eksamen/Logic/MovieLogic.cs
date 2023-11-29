@@ -10,11 +10,11 @@ namespace PG3302_Eksamen.Logic
     public class MovieLogic
     {
         List<Movie> Movies { get; set;}
-        readonly DbLogicMovie dbLogicMovie;
+        readonly DbLogicMovie _dbLogicMovie;
 
         public MovieLogic(DbLogicMovie dbLogicMovie)
         {
-            this.dbLogicMovie = dbLogicMovie;
+            this._dbLogicMovie = dbLogicMovie;
             Movies = new();
         }
 
@@ -26,7 +26,7 @@ namespace PG3302_Eksamen.Logic
             Movies.Add(movieToAdd);
             Console.WriteLine($"Movie {title} has been added!");
             
-            dbLogicMovie.AddMovieToDb(movieToAdd);
+            _dbLogicMovie.AddMovieToDb(movieToAdd);
         }
 
         //Remove a movie
@@ -39,7 +39,7 @@ namespace PG3302_Eksamen.Logic
         //Print all movies
         public void DisplayMovies()
         {
-            dbLogicMovie.PrintAllMoviesFromDb();
+            _dbLogicMovie.PrintAllMoviesFromDb();
         }
 
         //Edit movie title

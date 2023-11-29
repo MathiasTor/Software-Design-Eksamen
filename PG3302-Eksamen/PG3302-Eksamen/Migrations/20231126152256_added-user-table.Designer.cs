@@ -10,7 +10,7 @@ using PG3302_Eksamen.Database;
 namespace PG3302_Eksamen.Migrations
 {
     [DbContext(typeof(MediaDbContext))]
-    [Migration("20231126152256_added-user-table")]
+    [Migration("20231126152256_added-_user-table")]
     partial class addedusertable
     {
         /// <inheritdoc />

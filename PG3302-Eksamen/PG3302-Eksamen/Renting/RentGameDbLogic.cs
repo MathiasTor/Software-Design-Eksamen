@@ -12,7 +12,7 @@ namespace PG3302_Eksamen.Renting
 {
     internal class RentGameDbLogic
     {
-        DbLogicGame dbLogicGame = new();
+        DbLogicGame _dbLogicGame = new();
 
         public RentGameDbLogic()
         {
@@ -20,7 +20,7 @@ namespace PG3302_Eksamen.Renting
 
         public List<Game> GetRentableGames()
         {
-            List<Game> games = dbLogicGame.GetAllGames();
+            List<Game> games = _dbLogicGame.GetAllGames();
             List<Game> rentedGames = new();
 
             var options = MediaDbContextFactory.Options();

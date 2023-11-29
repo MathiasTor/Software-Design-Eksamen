@@ -10,23 +10,23 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentGameLogic
     {
-        SystemUser user;
+        SystemUser _user;
 
-        RentGameDbLogic rentGameDbLogic = new();
+        RentGameDbLogic _rentGameDbLogic = new();
 
         public RentGameLogic(SystemUser user)
         {
-            this.user = user;
+            this._user = user;
         }
 
         public List<Game> GetRentableGames()
         {
-            return rentGameDbLogic.GetRentableGames();
+            return _rentGameDbLogic.GetRentableGames();
         }
 
         public void RentGame(Game game)
         {
-            rentGameDbLogic.RentGame(user, game);
+            _rentGameDbLogic.RentGame(_user, game);
         }
     }
 }

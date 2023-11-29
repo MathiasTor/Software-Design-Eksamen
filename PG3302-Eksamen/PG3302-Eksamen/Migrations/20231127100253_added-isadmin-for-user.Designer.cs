@@ -10,7 +10,7 @@ using PG3302_Eksamen.Database;
 namespace PG3302_Eksamen.Migrations
 {
     [DbContext(typeof(MediaDbContext))]
-    [Migration("20231127100253_added-isadmin-for-user")]
+    [Migration("20231127100253_added-isadmin-for-_user")]
     partial class addedisadminforuser
     {
         /// <inheritdoc />

@@ -10,7 +10,7 @@ namespace PG3302_Eksamen.UI
 
 
         public BookLogic bookLogic = new(new DbLogicBook());
-        private DbLogicBook DbLogic = new();
+        private DbLogicBook _dbLogic = new();
         SystemUser user;
  
         public BookUI(SystemUser user)
@@ -114,7 +114,7 @@ namespace PG3302_Eksamen.UI
             int counter = 0;
             Book bookToEdit = new();
 
-            ArrayList booksWithSameTitle = DbLogic.getAllBooksWithSameName(titleToEdit);
+            ArrayList booksWithSameTitle = _dbLogic.getAllBooksWithSameName(titleToEdit);
             Console.WriteLine("\n");
 
             if (booksWithSameTitle.Count > 1)
@@ -165,7 +165,7 @@ namespace PG3302_Eksamen.UI
         {
             Console.Write("Enter the Title of the Book you wish to delete: ");
             string titleToDelete = Console.ReadLine();
-            ArrayList booksWithSameTitle = DbLogic.getAllBooksWithSameName(titleToDelete);
+            ArrayList booksWithSameTitle = _dbLogic.getAllBooksWithSameName(titleToDelete);
             int counter = 0;
 
             Book bookToDelete = new();

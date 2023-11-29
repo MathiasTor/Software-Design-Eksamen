@@ -10,23 +10,23 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMusicLogic
     {
-        SystemUser user;
+        SystemUser _user;
 
-        RentMusicDbLogic rentMusicDbLogic = new();
+        RentMusicDbLogic _rentMusicDbLogic = new();
 
         public RentMusicLogic(SystemUser user)
         {
-            this.user = user;
+            this._user = user;
         }
 
         public List<Music> GetRentableMusic()
         {
-            return rentMusicDbLogic.GetRentableMusic();
+            return _rentMusicDbLogic.GetRentableMusic();
         }
 
         public void RentMusic(Music music)
         {
-            rentMusicDbLogic.RentMusic(user, music);
+            _rentMusicDbLogic.RentMusic(_user, music);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace PG3302_Eksamen.User
 {
     public class UserDbLogic
     {
-        //Add user to db
+        //Add _user to db
         public void AddUser(SystemUser user)
         {
             var options = MediaDbContextFactory.Options();
@@ -40,7 +40,7 @@ namespace PG3302_Eksamen.User
             }
         }
 
-        //Remove user from db
+        //Remove _user from db
         public void RemoveUser(SystemUser user)
         {
             var options = MediaDbContextFactory.Options();
@@ -52,7 +52,7 @@ namespace PG3302_Eksamen.User
             }
         }
 
-        //Validate user
+        //Validate _user
         public bool ValidateUser(SystemUser user)
         {
             var options = MediaDbContextFactory.Options();
@@ -70,7 +70,7 @@ namespace PG3302_Eksamen.User
             }
         }
 
-        //Promote user to admin
+        //Promote _user to admin
         public void PromoteUser(SystemUser user)
         {
             var options = MediaDbContextFactory.Options();

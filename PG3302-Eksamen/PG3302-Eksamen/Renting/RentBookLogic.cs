@@ -11,12 +11,12 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentBookLogic
     {
-        SystemUser user;
+        SystemUser _user;
 
         RentBookDbLogic rentBookDbLogic = new();
         public RentBookLogic(SystemUser user)
         {
-            this.user = user;
+            this._user = user;
         }
 
         public List<Book> GetRentableBooks()
@@ -26,7 +26,7 @@ namespace PG3302_Eksamen.Renting
 
         public void RentBook(Book book)
         {
-            rentBookDbLogic.RentBook(user, book);
+            rentBookDbLogic.RentBook(_user, book);
         }
 
     }

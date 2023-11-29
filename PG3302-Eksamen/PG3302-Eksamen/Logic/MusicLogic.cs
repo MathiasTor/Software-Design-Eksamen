@@ -12,10 +12,10 @@ namespace PG3302_Eksamen.Logic
 
         public List<Music> Songs { get; set; }
 
-        readonly DbLogicMusic DbLogic;
+        readonly DbLogicMusic _dbLogic;
 
         public MusicLogic (DbLogicMusic dbLogicMusic) {
-            DbLogic = dbLogicMusic;
+            _dbLogic = dbLogicMusic;
             Songs = new List<Music> ();
         }
         
@@ -25,7 +25,7 @@ namespace PG3302_Eksamen.Logic
             Music musicToAdd = new Music(title, artist, releaseYear, genre, lengthInSeconds);
 
             Songs.Add(musicToAdd);
-            DbLogic.AddMusicToDb(musicToAdd);
+            _dbLogic.AddMusicToDb(musicToAdd);
 
             Console.WriteLine($"Song {title} has been added!");
 
@@ -35,13 +35,13 @@ namespace PG3302_Eksamen.Logic
         public void RemoveSong(Music song)
         {
             Songs.Remove(song);
-            DbLogic.DeleteMusicFromDb(song);
+            _dbLogic.DeleteMusicFromDb(song);
         }
         
         //Print all songs
         public void DisplaySongs()
         {
-            DbLogic.PrintAllMusicFromDb();
+            _dbLogic.PrintAllMusicFromDb();
         }
         
         //Edit song title

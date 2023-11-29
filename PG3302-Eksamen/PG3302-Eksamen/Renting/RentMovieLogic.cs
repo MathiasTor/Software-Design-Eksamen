@@ -10,23 +10,23 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMovieLogic
     {
-        SystemUser user;
+        SystemUser _user;
 
-        RentMovieDbLogic rentMovieDbLogic = new();
+        RentMovieDbLogic _rentMovieDbLogic = new();
 
         public RentMovieLogic(SystemUser user)
         {
-            this.user = user;
+            this._user = user;
         }
 
         public List<Movie> GetRentableMovies()
         {
-            return rentMovieDbLogic.GetRentableMovies();
+            return _rentMovieDbLogic.GetRentableMovies();
         }
 
         public void RentMovie(Movie movie)
         {
-            rentMovieDbLogic.RentMovie(user, movie);
+            _rentMovieDbLogic.RentMovie(_user, movie);
         }
     }
 }

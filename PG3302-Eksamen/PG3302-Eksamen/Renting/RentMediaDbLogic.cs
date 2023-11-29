@@ -13,14 +13,14 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMediaDbLogic
     {
-        SystemUser user;
+        SystemUser _user;
 
         public RentMediaDbLogic(SystemUser user)
         {
-            this.user = user;
+            this._user = user;
         }
 
-        //Get all rented media for user
+        //Get all rented media for _user
         public List<RentedMedia> GetRentedMedia()
         {
             var options = MediaDbContextFactory.Options();
@@ -31,7 +31,7 @@ namespace PG3302_Eksamen.Renting
 
                 foreach (RentedMedia media in db.RentedMedia)
                 {
-                    if (media.RentedBy == user.Name && !media.IsReturned)
+                    if (media.RentedBy == _user.Name && !media.IsReturned)
                     {
                         rentedMedia.Add(media);
                     }

@@ -13,13 +13,13 @@ namespace PG3302_Eksamen.UI
     public class GameUI
     {       
         
-        public GameLogic gameLogic = new(new DbLogicGame());
-        private DbLogicGame dbLogicGame = new();
-        SystemUser user;
+        public GameLogic GameLogic = new(new DbLogicGame());
+        private DbLogicGame _dbLogicGame = new();
+        SystemUser _user;
 
         public GameUI(SystemUser user)
         {
-            this.user = user;
+            this._user = user;
         }
 
         public void GameMenu()
@@ -76,7 +76,7 @@ namespace PG3302_Eksamen.UI
             Console.WriteLine("\n" + 
                               "------------------" +
                               "\n");
-            gameLogic.DisplayGames();
+            GameLogic.DisplayGames();
 
             GameMenu();
 
@@ -100,7 +100,7 @@ namespace PG3302_Eksamen.UI
             Console.Write("Game Platform: ");
             string platform = Console.ReadLine();
 
-            gameLogic.AddGame(title, creator, releaseYear, genre, platform);
+            GameLogic.AddGame(title, creator, releaseYear, genre, platform);
 
             GameMenu();
         }
@@ -112,7 +112,7 @@ namespace PG3302_Eksamen.UI
             int counter = 0;
             Game gameToEdit = new();
 
-            List<Game> gamesWithSameTitle = dbLogicGame.GetAllGamesWithSameTitle(titleToEdit);
+            List<Game> gamesWithSameTitle = _dbLogicGame.GetAllGamesWithSameTitle(titleToEdit);
             Console.WriteLine("\n");
 
             if (gamesWithSameTitle.Count > 1)
@@ -176,31 +176,31 @@ namespace PG3302_Eksamen.UI
                     case 1:
                         Console.Write("Enter new title: ");
                         string newTitle = Console.ReadLine();
-                        gameLogic.EditGameTitle(gameToEdit, newTitle);
+                        GameLogic.EditGameTitle(gameToEdit, newTitle);
                         break;
 
                     case 2:
                         Console.Write("Enter new creator: ");
                         string newCreator = Console.ReadLine();
-                        gameLogic.EditGameCreator(gameToEdit, newCreator);
+                        GameLogic.EditGameCreator(gameToEdit, newCreator);
                         break;
 
                     case 3:
                         Console.Write("Enter new release year: ");
                         int newReleaseYear = Int32.Parse(Console.ReadLine());
-                        gameLogic.EditGameReleaseYear(gameToEdit, newReleaseYear);
+                        GameLogic.EditGameReleaseYear(gameToEdit, newReleaseYear);
                         break;
 
                     case 4:
                         Console.Write("Enter new genre: ");
                         string newGenre = Console.ReadLine();
-                        gameLogic.EditGameGenre(gameToEdit, newGenre);
+                        GameLogic.EditGameGenre(gameToEdit, newGenre);
                         break;
 
                     case 5:
                         Console.Write("Enter new platform: ");
                         string newPlatform = Console.ReadLine();
-                        gameLogic.EditGamePlatform(gameToEdit, newPlatform);
+                        GameLogic.EditGamePlatform(gameToEdit, newPlatform);
                         break;
 
                     case 9:
@@ -242,7 +242,7 @@ namespace PG3302_Eksamen.UI
         {
             Console.Write("Enter the Title of the Game you wish to delete: ");
             string titleToDelete = Console.ReadLine();
-            List<Game> gamesWithSameTitle = dbLogicGame.GetAllGamesWithSameTitle(titleToDelete);
+            List<Game> gamesWithSameTitle = _dbLogicGame.GetAllGamesWithSameTitle(titleToDelete);
             int counter = 0;
 
             Game gameToDelete = new();
@@ -283,7 +283,7 @@ namespace PG3302_Eksamen.UI
 
         private void DeleteGame(Game game)
         {
-            gameLogic.RemoveGame(game);
+            GameLogic.RemoveGame(game);
             Console.WriteLine("Game deleted!");
             Console.WriteLine("Delete more? Y/N");
             string answer = Console.ReadLine();
@@ -312,7 +312,7 @@ namespace PG3302_Eksamen.UI
         {
             Console.Clear();
             ConsoleApp consoleApp = new();
-            consoleApp.MainMenu(user);
+            consoleApp.MainMenu(_user);
         }
     }
 }

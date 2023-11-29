@@ -6,13 +6,13 @@ namespace PG3302_Eksamen.UI
 {
     public class MovieUI
     {
-        DbLogicMovie dbLogicMovie = new();
-        MovieLogic movieLogic = new(new DbLogicMovie());
-        SystemUser user;
+        DbLogicMovie _dbLogicMovie = new();
+        MovieLogic _movieLogic = new(new DbLogicMovie());
+        SystemUser _user;
 
         public MovieUI(SystemUser user)
         {
-            this.user = user;
+            this._user = user;
         }
 
         public void MovieMenu()
@@ -78,7 +78,7 @@ namespace PG3302_Eksamen.UI
             Console.WriteLine("Movie length in minutes: ");
             int lengthInMinutes = Int32.Parse(Console.ReadLine());
 
-            movieLogic.AddMovie(title, creator, releaseYear, genre, lengthInMinutes);
+            _movieLogic.AddMovie(title, creator, releaseYear, genre, lengthInMinutes);
 
             Console.Clear();
             Console.WriteLine("Movie added!");
@@ -90,14 +90,14 @@ namespace PG3302_Eksamen.UI
         {
             Console.Clear();
             ConsoleApp mainMenu = new();
-            mainMenu.MainMenu(user);
+            mainMenu.MainMenu(_user);
         }
 
         private void DeleteMovie()
         {
             Console.Write("Enter the Title of the Movie you wish to delete: ");
             string titleToDelete = Console.ReadLine();
-            List<Movie> moviesWithSameTitle = dbLogicMovie.GetAllMoviesWithSameTitle(titleToDelete);
+            List<Movie> moviesWithSameTitle = _dbLogicMovie.GetAllMoviesWithSameTitle(titleToDelete);
             int counter = 0;
 
             Movie movieToDelete = new();
@@ -138,7 +138,7 @@ namespace PG3302_Eksamen.UI
 
         private void DeleteMovie(Movie movieToDelete)
         {
-            movieLogic.RemoveMovie(movieToDelete);
+            _movieLogic.RemoveMovie(movieToDelete);
             Console.WriteLine("Movie deleted!");
             Console.WriteLine("Delete more? Y/N");
             string answer = Console.ReadLine();
@@ -167,7 +167,7 @@ namespace PG3302_Eksamen.UI
         {
             Console.WriteLine("Enter the Title of the Movie you wish to edit: ");
             string titleToEdit = Console.ReadLine();
-            List<Movie> moviesWithSameTitle = dbLogicMovie.GetAllMoviesWithSameTitle(titleToEdit);
+            List<Movie> moviesWithSameTitle = _dbLogicMovie.GetAllMoviesWithSameTitle(titleToEdit);
             int counter = 0;
             Movie movieToEdit = new();
 
@@ -224,35 +224,35 @@ namespace PG3302_Eksamen.UI
                 case "1":
                     Console.Write("Enter new title: ");
                     string newTitle = Console.ReadLine();
-                    movieLogic.EditMovieTitle(movieToEdit, newTitle);
+                    _movieLogic.EditMovieTitle(movieToEdit, newTitle);
                     Console.WriteLine("Title changed!");
                     break;
 
                 case "2":
                     Console.Write("Enter new creator: ");
                     string newCreator = Console.ReadLine();
-                    movieLogic.EditMovieCreator(movieToEdit, newCreator);
+                    _movieLogic.EditMovieCreator(movieToEdit, newCreator);
                     Console.WriteLine("Creator changed!");
                     break;
 
                 case "3":
                     Console.Write("Enter new release year: ");
                     int newReleaseYear = Int32.Parse(Console.ReadLine());
-                    movieLogic.EditMovieReleaseYear(movieToEdit, newReleaseYear);
+                    _movieLogic.EditMovieReleaseYear(movieToEdit, newReleaseYear);
                     Console.WriteLine("Release year changed!");
                     break;
 
                 case "4":
                     Console.Write("Enter new genre: ");
                     string newGenre = Console.ReadLine();
-                    movieLogic.EditMovieGenre(movieToEdit, newGenre);
+                    _movieLogic.EditMovieGenre(movieToEdit, newGenre);
                     Console.WriteLine("Genre changed!");
                     break;
 
                 case "5":
                     Console.Write("Enter new length in minutes: ");
                     int newLength = Int32.Parse(Console.ReadLine());
-                    movieLogic.EditMovieLength(movieToEdit, newLength);
+                    _movieLogic.EditMovieLength(movieToEdit, newLength);
                     Console.WriteLine("Length changed!");
                     break;
 
@@ -286,7 +286,7 @@ namespace PG3302_Eksamen.UI
         }
 
         public void DisplayMovies() {
-            movieLogic.DisplayMovies();
+            _movieLogic.DisplayMovies();
             MovieMenu();
         }
 

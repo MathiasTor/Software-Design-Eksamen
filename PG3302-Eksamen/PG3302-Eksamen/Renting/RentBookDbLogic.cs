@@ -14,7 +14,7 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentBookDbLogic
     {
-        DbLogicBook dbLogic = new();
+        DbLogicBook _dbLogic = new();
 
         public RentBookDbLogic()
         {
@@ -22,7 +22,7 @@ namespace PG3302_Eksamen.Renting
 
         public List<Book> GetRentableBooks()
         {
-            List<Book> books = dbLogic.GetAllBooks();
+            List<Book> books = _dbLogic.GetAllBooks();
             ArrayList rentedBooks = new();
 
             var options = MediaDbContextFactory.Options();

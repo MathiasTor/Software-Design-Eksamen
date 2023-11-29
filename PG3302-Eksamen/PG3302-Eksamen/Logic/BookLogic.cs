@@ -7,11 +7,11 @@ namespace PG3302_Eksamen.Logic
     public class BookLogic
     {
         public List<Book> Books { get; set; }
-        readonly DbLogicBook DbLogic;
+        readonly DbLogicBook _dbLogic;
 
         public BookLogic(DbLogicBook dbLogic)
         {
-            this.DbLogic = dbLogic;
+            this._dbLogic = dbLogic;
             Books = new List<Book>();
         }
 
@@ -23,7 +23,7 @@ namespace PG3302_Eksamen.Logic
             Books.Add(bookToAdd);
             Console.WriteLine($"Book {title} has been added!");
             
-            DbLogic.AddBookToDb(bookToAdd);
+            _dbLogic.AddBookToDb(bookToAdd);
         }
 
         //Remove a book
@@ -38,7 +38,7 @@ namespace PG3302_Eksamen.Logic
         //Print all books
         public void DisplayBooks()
         {
-            DbLogic.PrintAllBooksFromDb();
+            _dbLogic.PrintAllBooksFromDb();
             
         }
 

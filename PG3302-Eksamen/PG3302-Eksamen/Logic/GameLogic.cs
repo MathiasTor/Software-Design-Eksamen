@@ -5,11 +5,11 @@ namespace PG3302_Eksamen.Logic
     public class GameLogic
     {
         public List<Game> Games { get; set; }
-        readonly DbLogicGame DbLogic;
+        readonly DbLogicGame _dbLogic;
 
         public GameLogic(DbLogicGame dbLogicGame)
         {
-            this.DbLogic = dbLogicGame;
+            this._dbLogic = dbLogicGame;
             Games = new List<Game>();
         }
 
@@ -21,7 +21,7 @@ namespace PG3302_Eksamen.Logic
             Games.Add(gameToAdd);
             Console.WriteLine($"Game {title} has been added!");
             
-            DbLogic.AddGameToDb(gameToAdd);
+            _dbLogic.AddGameToDb(gameToAdd);
 
         }
 
@@ -35,7 +35,7 @@ namespace PG3302_Eksamen.Logic
         //Print all games
         public void DisplayGames()
         {
-            DbLogic.PrintAllGamesFromDb();
+            _dbLogic.PrintAllGamesFromDb();
         }
 
         //Edit game title

@@ -1,6 +1,8 @@
 ﻿using PG3302_Eksamen.Database;
 using PG3302_Eksamen.Logic;
 using PG3302_Eksamen.Media;
+using PG3302_Eksamen.Renting;
+using PG3302_Eksamen.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,12 @@ namespace PG3302_Eksamen_Tests
                     db.Books.Remove(book);
                     db.SaveChanges();
                 }
+
+                foreach (RentedMedia rm in db.RentedMedia)
+                {
+                    db.RentedMedia.Remove(rm);
+                    db.SaveChanges();
+                }
             }
         }
         [TearDown] public void TearDown()
@@ -34,6 +42,12 @@ namespace PG3302_Eksamen_Tests
                 foreach (Book book in db.Books)
                 {
                     db.Books.Remove(book);
+                    db.SaveChanges();
+                }
+
+                foreach (RentedMedia rm in db.RentedMedia)
+                {
+                    db.RentedMedia.Remove(rm);
                     db.SaveChanges();
                 }
             }
@@ -118,6 +132,98 @@ namespace PG3302_Eksamen_Tests
 
             // Asssert
             Assert.That(book.Title, Is.EqualTo("newTitle"));
+        }
+
+        [Test]
+        public void GetRentable_Books_ShouldReturn1Book()
+        {
+            // Arrange
+            string Title = "testingname";
+            string Creator = "tolkien";
+            int ReleaseYear = 1943;
+            string Genre = "fantasy";
+            int Pages = 800;
+            BookLogic bookLogic = new(new DbLogicBook());
+            DbLogicBook dbLogicBook = new();
+            RentBookDbLogic rentBookDbLogic = new();
+
+
+            // Act
+
+            Book bookToTest = new(Title, Creator, ReleaseYear, Genre, Pages);
+
+            dbLogicBook.AddBookToDb(bookToTest);
+
+            List<Book> rentableBooks = rentBookDbLogic.GetRentableBooks();
+
+            // Asssert
+            Assert.That(rentableBooks.Count(), Is.EqualTo(1));
+        }
+
+        [Test]
+        public void Rent_Book_ShouldBeRented()
+        {
+            // Arrange
+            string Title = "testingname";
+            string Creator = "tolkien";
+            int ReleaseYear = 1943;
+            string Genre = "fantasy";
+            int Pages = 800;
+            BookLogic bookLogic = new(new DbLogicBook());
+            DbLogicBook dbLogicBook = new();
+            RentBookDbLogic rentBookDbLogic = new();
+
+
+            // Act
+
+            Book bookToTest = new(Title, Creator, ReleaseYear, Genre, Pages);
+            SystemUser user = new("Name", "Email", "pw", false);
+
+            dbLogicBook.AddBookToDb(bookToTest);
+            rentBookDbLogic.RentBook(user, bookToTest);
+
+            RentMediaDbLogic rentMediaDbLogic = new(user);
+
+            rentMediaDbLogic.GetRentedMedia();
+
+            List<RentedMedia> rentedMedia = rentMediaDbLogic.GetRentedMedia();
+
+            // Asssert
+            Assert.That(rentedMedia.Count(), Is.EqualTo(1));
+        }
+
+        [Test]
+        public void Return_Book_ShouldBeReturned()
+        {
+            // Arrange
+            string Title = "testingname";
+            string Creator = "tolkien";
+            int ReleaseYear = 1943;
+            string Genre = "fantasy";
+            int Pages = 800;
+            BookLogic bookLogic = new(new DbLogicBook());
+            DbLogicBook dbLogicBook = new();
+            RentBookDbLogic rentBookDbLogic = new();
+
+            // Act
+
+            Book bookToTest = new(Title, Creator, ReleaseYear, Genre, Pages);
+            SystemUser user = new("Name", "Email", "pw", false);
+
+            RentMediaDbLogic rentMediaDbLogic = new(user);
+
+            dbLogicBook.AddBookToDb(bookToTest);
+            rentBookDbLogic.RentBook(user, bookToTest);
+
+            List<RentedMedia> rentedMedia = rentMediaDbLogic.GetRentedMedia();
+
+            RentedMedia media = rentedMedia[0];
+
+            rentMediaDbLogic.ReturnMedia(media);
+            List<Book> rentableBooks = rentBookDbLogic.GetRentableBooks();
+
+            // Assert
+            Assert.That(rentableBooks.Count(), Is.EqualTo(1));
         }
     }
 }

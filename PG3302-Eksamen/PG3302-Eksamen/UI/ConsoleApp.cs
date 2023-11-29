@@ -7,7 +7,7 @@ namespace PG3302_Eksamen.UI
     public class ConsoleApp
     {
 
-        UserLogic userLogic = new();
+        UserLogic _userLogic = new();
 
         public void RunProgram()
         {
@@ -57,14 +57,14 @@ namespace PG3302_Eksamen.UI
 
             SystemUser user = new(username, email, password, false);
 
-            if (userLogic.IsUsernameTaken(user))
+            if (_userLogic.IsUsernameTaken(user))
             {
                 Console.Clear();
                 Console.WriteLine("Username is already taken, please try again");
                 RegisterUser();
                 return;
             }
-            userLogic.AddUser(user);
+            _userLogic.AddUser(user);
 
             Console.Clear();
             Console.WriteLine("User successfully registered!");
@@ -86,7 +86,7 @@ namespace PG3302_Eksamen.UI
                 return;
             }
 
-            if(userLogic.ValidateUser(new SystemUser(username, "", password, false)))
+            if(_userLogic.ValidateUser(new SystemUser(username, "", password, false)))
             {
                 Console.Clear();
                 Console.WriteLine("Login successful!");

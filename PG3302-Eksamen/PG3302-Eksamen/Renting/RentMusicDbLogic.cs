@@ -12,7 +12,7 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMusicDbLogic
     {
-        DbLogicMusic dbLogic = new();
+        DbLogicMusic _dbLogic = new();
 
         public RentMusicDbLogic()
         {
@@ -20,7 +20,7 @@ namespace PG3302_Eksamen.Renting
 
         internal List<Music> GetRentableMusic()
         {
-            List<Music> songs = dbLogic.GetAllMusic();
+            List<Music> songs = _dbLogic.GetAllMusic();
             List<Music> rentedSongs = new();
 
             var options = MediaDbContextFactory.Options();

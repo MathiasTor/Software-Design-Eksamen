@@ -11,11 +11,11 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMovieUI
     {
-        SystemUser user;
+        SystemUser _user;
 
         public RentMovieUI(SystemUser user)
         {
-            this.user = user;
+            this._user = user;
         }
 
         internal void RentMovieMenu(SystemUser user)

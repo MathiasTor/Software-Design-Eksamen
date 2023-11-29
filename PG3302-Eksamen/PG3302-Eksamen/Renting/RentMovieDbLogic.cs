@@ -12,7 +12,7 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMovieDbLogic
     {
-        DbLogicMovie dbLogicMovie = new();
+        DbLogicMovie _dbLogicMovie = new();
 
         public RentMovieDbLogic()
         {
@@ -20,7 +20,7 @@ namespace PG3302_Eksamen.Renting
 
         public List<Movie> GetRentableMovies()
         {
-            List<Movie> movies = dbLogicMovie.GetAllMovies();
+            List<Movie> movies = _dbLogicMovie.GetAllMovies();
             List<Movie> rentedMovies = new();
 
             var options = MediaDbContextFactory.Options();

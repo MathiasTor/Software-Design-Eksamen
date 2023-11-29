@@ -11,11 +11,11 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMusicUI
     {
-        readonly SystemUser user;
+        readonly SystemUser _user;
 
         public RentMusicUI(SystemUser user)
         {
-            this.user = user;
+            this._user = user;
         }
 
         internal void RentMusicMenu(SystemUser user)
