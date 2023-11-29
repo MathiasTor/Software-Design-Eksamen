@@ -16,24 +16,32 @@ namespace PG3302_Eksamen_Tests
         [SetUp]
         public void SetUp()
         {
-          
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                foreach (Book book in db.Books)
+                {
+                    db.Remove(book);
+                    db.SaveChanges();
+                }
+            }
+
 
         }
 
         [TearDown] public void TearDown() {
-
-            
-       
-
+           
         }
 
 
-
+        
         [Test]
         public void AddBook()
         {
+            using (TransactionScope scope = new TransactionScope()) ;
 
-            // Arrange
+                // Arrange
             string Title = "testingname";
             string Creator = "tolkien";
             int ReleaseYear = 1943;
@@ -49,39 +57,32 @@ namespace PG3302_Eksamen_Tests
             Assert.That(bookLogic.CheckIfBookExists("testingname"));
 
 
+
+
         }
+    
         [Test]
-        [Obsolete]
-        public void GetAllMusic() {
+        public void GetAllBooks() {
 
-            string Title = "testingsong";
-            string Creator = "testingcomposer";
-            int ReleaseYear = 1980;
-            string Genre = "classical";
-            int lengthInSeconds = 180;
-            DbLogicMusic database = new();
-            // Music song = new(Title, Creator, ReleaseYear, Genre, lengthInSeconds);
-            MusicLogic musicLogic = new();
+            string Title = "testingname";
+            string Creator = "tolkien";
+            int ReleaseYear = 1943;
+            string Genre = "fantasy";
+            int Pages = 800;
 
 
-            musicLogic.AddSong(Title, Creator, ReleaseYear, Genre, lengthInSeconds);
+            Book bookTest = new Book(Title, Creator, ReleaseYear, Genre, Pages);
+            DbLogic database = new();
 
-            List<Music> musicList = database.GetAllMusic();
-            foreach (var songList in musicList)
+
+            ArrayList bookList = database.GetAllBooks();
+            foreach (var book in bookList)
             {
-                Console.WriteLine(songList);
+                Console.WriteLine(book);
             }
 
 
-            Assert.That(musicList.Contains(song));
-
-          
-        }
-
-        [Test]
-        public void GetAllBooks()
-        {
-
+            Assert.That(bookList.Contains(bookTest), Is.True);
         }
      
     }
