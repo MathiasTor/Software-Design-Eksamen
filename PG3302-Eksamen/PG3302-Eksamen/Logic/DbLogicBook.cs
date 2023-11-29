@@ -21,6 +21,7 @@ namespace PG3302_Eksamen.Logic
 
         }
 
+        //Delete book from db
         public static Book? DeleteBookFromDb(Book book)
         {
             var options = MediaDbContextFactory.Options();
@@ -36,6 +37,7 @@ namespace PG3302_Eksamen.Logic
 
         }
         
+        //Edit book title in db
         public static Book? EditBookTitle(Book book, string newTitle)
         {
             var options = MediaDbContextFactory.Options();
@@ -54,6 +56,7 @@ namespace PG3302_Eksamen.Logic
             }
         }
 
+        //Edit book author in db
         public static Book? EditBookAuthor(Book book, string newAuthor)
         {
             var options = MediaDbContextFactory.Options();
@@ -71,6 +74,7 @@ namespace PG3302_Eksamen.Logic
             }
         }
 
+        //Edit book release year in db
         public static Book? EditBookReleaseYear(Book book, int newReleaseYear)
         {
             var options = MediaDbContextFactory.Options();
@@ -87,6 +91,7 @@ namespace PG3302_Eksamen.Logic
             }
         }
 
+        //Edit book genre in db
         public static Book? EditBookGenre(Book book, string newGenre)
         {
             var options = MediaDbContextFactory.Options();
@@ -103,6 +108,7 @@ namespace PG3302_Eksamen.Logic
             }
         }
 
+        //Edit book pages in db
         public static Book? EditBookPages(Book book, int newPages)
         {
             var options = MediaDbContextFactory.Options();
@@ -119,6 +125,7 @@ namespace PG3302_Eksamen.Logic
             }
         }
 
+        //Get all books with same name from db
         public ArrayList getAllBooksWithSameName(String name)
         {
             var options = MediaDbContextFactory.Options();
@@ -155,7 +162,7 @@ namespace PG3302_Eksamen.Logic
             }
         }
 
-        //Return all books as arraylist
+        //Return all books
         public List<Book> GetAllBooks()
         {
             var options = MediaDbContextFactory.Options();

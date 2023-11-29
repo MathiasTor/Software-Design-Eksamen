@@ -9,9 +9,11 @@ namespace PG3302_Eksamen.Logic
 {
     public class MovieLogic
     {
+        //Properties
         List<Movie> Movies { get; set;}
         readonly DbLogicMovie _dbLogicMovie;
 
+        //Constructor
         public MovieLogic(DbLogicMovie dbLogicMovie)
         {
             this._dbLogicMovie = dbLogicMovie;

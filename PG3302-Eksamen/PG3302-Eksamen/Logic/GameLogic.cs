@@ -4,9 +4,11 @@ namespace PG3302_Eksamen.Logic
 {
     public class GameLogic
     {
+        //Properties
         public List<Game> Games { get; set; }
         readonly DbLogicGame _dbLogic;
 
+        //Constructor
         public GameLogic(DbLogicGame dbLogicGame)
         {
             this._dbLogic = dbLogicGame;

@@ -11,13 +11,17 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentGameUI
     {
+        //Fields
         private SystemUser _user;
 
+        //Constructor
         public RentGameUI(SystemUser user)
         {
             this._user = user;
         }
 
+        //Methods
+        //Rent game menu
         internal void RentGameMenu(SystemUser user)
         {
             RentGameLogic rentGameLogic = new(user);

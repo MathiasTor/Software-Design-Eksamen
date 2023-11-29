@@ -14,12 +14,16 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentBookDbLogic
     {
+        //Properties
         private DbLogicBook _dbLogic = new();
 
+        //Constructor
         public RentBookDbLogic()
         {
         }
 
+        //Methods
+        //Get all books that are not rented
         public List<Book> GetRentableBooks()
         {
             List<Book> books = _dbLogic.GetAllBooks();
@@ -49,6 +53,7 @@ namespace PG3302_Eksamen.Renting
             }
         }
 
+        //Get all rented books
         public void RentBook(SystemUser user, Book book)
         {
             var options = MediaDbContextFactory.Options();

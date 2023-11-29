@@ -13,8 +13,10 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMediaDbLogic
     {
+        //Fields
         private SystemUser _user;
 
+        //Constructor
         public RentMediaDbLogic(SystemUser user)
         {
             this._user = user;

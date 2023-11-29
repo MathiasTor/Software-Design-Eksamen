@@ -12,12 +12,16 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMovieDbLogic
     {
+        //Fields
         private DbLogicMovie _dbLogicMovie = new();
 
+        //Constructor
         public RentMovieDbLogic()
         {
         }
 
+        //Methods
+        //Get all movies that are not rented
         public List<Movie> GetRentableMovies()
         {
             List<Movie> movies = _dbLogicMovie.GetAllMovies();
@@ -47,6 +51,7 @@ namespace PG3302_Eksamen.Renting
             }
         }
 
+        //Rent movie
         public void RentMovie(SystemUser user, Movie movie)
         {
             var options = MediaDbContextFactory.Options();

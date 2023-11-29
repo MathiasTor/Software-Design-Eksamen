@@ -13,11 +13,14 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMediaUI
     {
+        //Constructor
         public RentMediaUI()
         {
 
         }
 
+        //Methods
+        //Rent media menu
         public void RentMediaMenu(SystemUser user)
         {
             Console.WriteLine("What would you like to rent?");
@@ -164,30 +167,35 @@ namespace PG3302_Eksamen.Renting
             }
         }
 
+        //Main menu
         private void MainMenu(SystemUser user)
         {
             ConsoleApp mainMenu = new();
             mainMenu.MainMenu(user);
         }
 
+        //Rent game menu
         private void RentGame(SystemUser user)
         {
             RentGameUI rentGameUI = new(user);
             rentGameUI.RentGameMenu(user);
         }
 
+        //Rent music menu
         private void RentMusic(SystemUser user)
         {
             RentMusicUI rentMusicUI = new(user);
             rentMusicUI.RentMusicMenu(user);
         }
 
+        //Rent movie menu
         private void RentMovie(SystemUser user)
         {
             RentMovieUI rentMovieUI = new(user);
             rentMovieUI.RentMovieMenu(user);
         }
 
+        //Rent book menu
         private void RentBook(SystemUser user)
         {
             RentBookUI rentBookUI = new(user);

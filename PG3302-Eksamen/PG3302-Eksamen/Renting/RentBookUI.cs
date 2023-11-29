@@ -12,12 +12,17 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentBookUI
     {
+        //Properties
         private SystemUser _user;
+
+        //Constructor
         public RentBookUI(SystemUser user)
         {
             this._user = user;
         }
 
+        //Methods
+        //Rent book menu
         internal void RentBookMenu(SystemUser user)
         {
             RentBookLogic rentBookLogic = new(user);

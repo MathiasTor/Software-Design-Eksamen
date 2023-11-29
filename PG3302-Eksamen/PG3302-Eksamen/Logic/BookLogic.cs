@@ -6,15 +6,18 @@ namespace PG3302_Eksamen.Logic
 {
     public class BookLogic
     {
+        //Properties
         public List<Book> Books { get; set; }
         readonly DbLogicBook _dbLogic;
 
+        //Constructor
         public BookLogic(DbLogicBook dbLogic)
         {
             this._dbLogic = dbLogic;
             Books = new List<Book>();
         }
 
+        //Methods
         //Add a book
         public void AddBook(string title, string creator, int releaseYear, string genre, int pages)
         {

@@ -9,11 +9,11 @@ namespace PG3302_Eksamen.Logic
 {
     public class MusicLogic
     {
-
+        //Properties
         public List<Music> Songs { get; set; }
-
         readonly DbLogicMusic _dbLogic;
 
+        //Constructor
         public MusicLogic (DbLogicMusic dbLogicMusic) {
             _dbLogic = dbLogicMusic;
             Songs = new List<Music> ();

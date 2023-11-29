@@ -12,7 +12,6 @@ namespace PG3302_Eksamen.UI
 {
     public class GameUI
     {       
-        
         private GameLogic _gameLogic = new(new DbLogicGame());
         private DbLogicGame _dbLogicGame = new();
         private SystemUser _user;

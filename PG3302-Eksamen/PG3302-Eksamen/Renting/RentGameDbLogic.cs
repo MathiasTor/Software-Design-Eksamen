@@ -12,12 +12,16 @@ namespace PG3302_Eksamen.Renting
 {
     internal class RentGameDbLogic
     {
+        //Properties
         private DbLogicGame _dbLogicGame = new();
 
+        //Constructor
         public RentGameDbLogic()
         {
         }
 
+        //Methods
+        //Get all games that are not rented
         public List<Game> GetRentableGames()
         {
             List<Game> games = _dbLogicGame.GetAllGames();
@@ -47,6 +51,7 @@ namespace PG3302_Eksamen.Renting
             }
         }
 
+        //Rent game
         public void RentGame(SystemUser user, Game game)
         {
             var options = MediaDbContextFactory.Options();
