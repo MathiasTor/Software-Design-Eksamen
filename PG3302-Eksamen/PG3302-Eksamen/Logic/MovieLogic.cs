@@ -10,7 +10,7 @@ namespace PG3302_Eksamen.Logic
     public class MovieLogic
     {
         //Properties
-        List<Movie> Movies { get; set;}
+        public List<Movie> Movies { get; set;}
 
         //Field
         readonly DbLogicMovie _dbLogicMovie;
