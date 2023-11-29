@@ -11,6 +11,8 @@ namespace PG3302_Eksamen.Logic
     {
         //Properties
         List<Movie> Movies { get; set;}
+
+        //Field
         readonly DbLogicMovie _dbLogicMovie;
 
         //Constructor
@@ -20,6 +22,7 @@ namespace PG3302_Eksamen.Logic
             Movies = new();
         }
 
+        //Methods
         //Add a movie
         public void AddMovie(string title, string creator, int releaseYear, string genre, int lengthInMinutes)
         {

@@ -6,15 +6,18 @@ namespace PG3302_Eksamen.UI
 {
     public class MovieUI
     {
+        //Fields
         private DbLogicMovie _dbLogicMovie = new();
         private MovieLogic _movieLogic = new(new DbLogicMovie());
         private SystemUser _user;
 
+        //Constructor
         public MovieUI(SystemUser user)
         {
             this._user = user;
         }
 
+        //Methods
         public void MovieMenu()
         {
 
@@ -97,7 +100,6 @@ namespace PG3302_Eksamen.UI
             Console.Write("Enter the Title of the Movie you wish to delete: ");
             string titleToDelete = Console.ReadLine();
             List<Movie> moviesWithSameTitle = _dbLogicMovie.GetAllMoviesWithSameTitle(titleToDelete);
-            int counter = 0;
 
             Movie movieToDelete = new();
 
@@ -114,7 +116,7 @@ namespace PG3302_Eksamen.UI
                     int movieIdToDelete = Int32.Parse(Console.ReadLine());
                     movieToDelete = (Movie)moviesWithSameTitle[movieIdToDelete - 1];
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Console.WriteLine("Invalid input!");
                     DeleteMovie();
@@ -167,7 +169,6 @@ namespace PG3302_Eksamen.UI
             Console.WriteLine("Enter the Title of the Movie you wish to edit: ");
             string titleToEdit = Console.ReadLine();
             List<Movie> moviesWithSameTitle = _dbLogicMovie.GetAllMoviesWithSameTitle(titleToEdit);
-            int counter = 0;
             Movie movieToEdit = new();
 
             if (moviesWithSameTitle.Count > 1)
@@ -183,7 +184,7 @@ namespace PG3302_Eksamen.UI
                     int movieIdToEdit = Int32.Parse(Console.ReadLine());
                     movieToEdit = (Movie)moviesWithSameTitle[movieIdToEdit - 1];
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Console.WriteLine("Invalid input!");
                     EditMovie();

@@ -2,22 +2,19 @@
 using PG3302_Eksamen.Logic;
 using PG3302_Eksamen.Media;
 using PG3302_Eksamen.User;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PG3302_Eksamen.Renting
 {
     public class RentMusicDbLogic
     {
+        //Field
         private DbLogicMusic _dbLogic = new();
 
+        //Constructor
         public RentMusicDbLogic()
         {
         }
-
+        //Methods
         internal List<Music> GetRentableMusic()
         {
             List<Music> songs = _dbLogic.GetAllMusic();

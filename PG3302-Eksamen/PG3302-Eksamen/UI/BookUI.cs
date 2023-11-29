@@ -7,15 +7,18 @@ namespace PG3302_Eksamen.UI
 {
     public class BookUI
     {
+        //Field
         public BookLogic bookLogic = new(new DbLogicBook());
         private DbLogicBook _dbLogic = new();
         private SystemUser _user;
  
+        //Constructor
         public BookUI(SystemUser user)
         {
             this._user = user;
         }
 
+        //Methods
         public void BookMenu()
         {
             Console.WriteLine("Welcome to the book registry\n" +
@@ -111,7 +114,6 @@ namespace PG3302_Eksamen.UI
         {
             Console.WriteLine("Enter title of book to edit");
             String? titleToEdit = Console.ReadLine();
-            int counter = 0;
             Book bookToEdit = new();
 
             ArrayList booksWithSameTitle = _dbLogic.getAllBooksWithSameName(titleToEdit);
@@ -129,7 +131,7 @@ namespace PG3302_Eksamen.UI
                     int bookIdToEdit = Int32.Parse(Console.ReadLine());
                     bookToEdit = (Book)booksWithSameTitle[bookIdToEdit - 1];
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Console.WriteLine("Invalid input!");
                     EditBook();
@@ -166,7 +168,6 @@ namespace PG3302_Eksamen.UI
             Console.Write("Enter the Title of the Book you wish to delete: ");
             string titleToDelete = Console.ReadLine();
             ArrayList booksWithSameTitle = _dbLogic.getAllBooksWithSameName(titleToDelete);
-            int counter = 0;
 
             Book bookToDelete = new();
 
@@ -183,7 +184,7 @@ namespace PG3302_Eksamen.UI
                     int bookIdToDelete = Int32.Parse(Console.ReadLine());
                     bookToDelete = (Book)booksWithSameTitle[bookIdToDelete - 1];
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Console.WriteLine("Invalid input!");
                     DeleteBook();
@@ -276,7 +277,7 @@ namespace PG3302_Eksamen.UI
                         break;
                 }
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 Console.WriteLine("Invalid input!");
                 EditBook(book);

@@ -1,23 +1,19 @@
 ﻿using PG3302_Eksamen.Media;
-using PG3302_Eksamen.UI;
 using PG3302_Eksamen.User;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PG3302_Eksamen.Renting
 {
     public class RentMovieUI
     {
+        //Field
         private SystemUser _user;
 
+        //Constructor
         public RentMovieUI(SystemUser user)
         {
             this._user = user;
         }
-
+        //Methods
         internal void RentMovieMenu(SystemUser user)
         {
             RentMovieLogic rentMovieLogic = new(user);

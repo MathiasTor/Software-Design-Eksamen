@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PG3302_Eksamen.Logic;
+﻿using PG3302_Eksamen.Logic;
 using PG3302_Eksamen.Media;
 using PG3302_Eksamen.User;
 
@@ -12,14 +7,17 @@ namespace PG3302_Eksamen.UI
     public class MusicUI
     {
 
+        //Fields
         private MusicLogic _musicLogic = new(new DbLogicMusic());
         private SystemUser _user;
 
+        //Constructor
         public MusicUI(SystemUser user)
         {
             this._user = user;
         }
 
+        //Methods
         public void MusicMenu()
         {
 
@@ -74,7 +72,6 @@ namespace PG3302_Eksamen.UI
         {
             Console.WriteLine("Enter title of song to delete: ");
             string title = Console.ReadLine();
-            int counter = 0;
             Music songToDelete = new();
 
             List<Music> songsWithSameTitle = DbLogicMusic.GetAllMusicWithSameTitle(title);
@@ -93,7 +90,7 @@ namespace PG3302_Eksamen.UI
                     int songIdToDelete = Int32.Parse(Console.ReadLine());
                     songToDelete = songsWithSameTitle[songIdToDelete - 1];
                 }
-                catch(Exception e)
+                catch(Exception)
                 {
                     Console.WriteLine("Invalid input!");
                     DeleteSong();
@@ -135,7 +132,6 @@ namespace PG3302_Eksamen.UI
         {
             Console.WriteLine("Enter title of song to edit: ");
             string title = Console.ReadLine();
-            int counter = 0;
             Music songToEdit = new();
 
             List<Music> songsWithSameTitle = DbLogicMusic.GetAllMusicWithSameTitle(title);
@@ -154,7 +150,7 @@ namespace PG3302_Eksamen.UI
                     int gameIdToEdit = Int32.Parse(Console.ReadLine());
                     songToEdit = songsWithSameTitle[gameIdToEdit - 1];
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Console.WriteLine("Invalid input!");
                     EditSong();
@@ -242,7 +238,7 @@ namespace PG3302_Eksamen.UI
                         break;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("Invalid input! (1,2,3,4,5,9,0)");
                 EditSong(songToEdit);

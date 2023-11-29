@@ -8,7 +8,7 @@ namespace PG3302_Eksamen.Media
         //Properties
         public int? Pages { get; set; }
 
-        //Constructor
+        //Constructors
         public Book(string title, string creator, int releaseYear, string genre, int pages)
         {
             Title = title;

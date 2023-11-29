@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PG3302_Eksamen.Database;
+﻿using PG3302_Eksamen.Database;
 using PG3302_Eksamen.Logic;
 
 namespace PG3302_Eksamen.User
 {
     public class UserDbLogic
     {
+
+        //Methods
         //Add _user to db
         public void AddUser(SystemUser user)
         {

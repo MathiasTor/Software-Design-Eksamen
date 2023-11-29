@@ -2,16 +2,14 @@
 using PG3302_Eksamen.Media;
 using PG3302_Eksamen.User;
 using PG3302_Eksamen.Renting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PG3302_Eksamen.Database
 {
     public class MediaDbContext : DbContext
     {
+
+        //Properties
+
         public DbSet<Game> Games { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<Music> Music { get; set; }
@@ -19,7 +17,7 @@ namespace PG3302_Eksamen.Database
         public DbSet<SystemUser> Users { get; set; }
         public DbSet<RentedMedia> RentedMedia { get; set; }
 
-        //Constructor
+        //Constructors
         public MediaDbContext()
         {
         }
@@ -29,6 +27,8 @@ namespace PG3302_Eksamen.Database
         {
             Database.EnsureCreated();
         }
+
+        //Methods
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

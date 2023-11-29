@@ -1,5 +1,4 @@
-﻿using PG3302_Eksamen.Media;
-using PG3302_Eksamen.Renting;
+﻿using PG3302_Eksamen.Renting;
 using PG3302_Eksamen.User;
 
 namespace PG3302_Eksamen.UI
@@ -7,8 +6,10 @@ namespace PG3302_Eksamen.UI
     public class ConsoleApp
     {
 
+        //Fields
         private UserLogic _userLogic = new();
 
+        //Methods
         public void RunProgram()
         {
             Console.WriteLine("Welcome the the Library of Media!");

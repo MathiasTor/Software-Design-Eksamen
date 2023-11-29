@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PG3302_Eksamen.Database;
-using PG3302_Eksamen.Media;
+﻿using PG3302_Eksamen.Media;
 
 namespace PG3302_Eksamen.Logic
 {
@@ -8,6 +6,8 @@ namespace PG3302_Eksamen.Logic
     {
         //Properties
         public List<Book> Books { get; set; }
+
+        //Field
         readonly DbLogicBook _dbLogic;
 
         //Constructor
@@ -36,7 +36,6 @@ namespace PG3302_Eksamen.Logic
             DbLogicBook.DeleteBookFromDb(book);
 
         }
-
 
         //Print all books
         public void DisplayBooks()

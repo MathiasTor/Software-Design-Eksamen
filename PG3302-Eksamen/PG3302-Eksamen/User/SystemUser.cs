@@ -1,5 +1,4 @@
-﻿
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PG3302_Eksamen.User
 {
@@ -13,7 +12,7 @@ namespace PG3302_Eksamen.User
         public string? Password { get; set; }
         public bool IsAdmin { get; set; }
 
-        //Constructor
+        //Constructors
         public SystemUser(string Name, String Email, String Password, bool IsAdmin) {
             this.Name = Name;
             this.Email = Email;

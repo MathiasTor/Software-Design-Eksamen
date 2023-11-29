@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System.Collections;
 using PG3302_Eksamen.Database;
 using PG3302_Eksamen.Logic;
 using PG3302_Eksamen.Media;
@@ -14,7 +8,7 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentBookDbLogic
     {
-        //Properties
+        //Field
         private DbLogicBook _dbLogic = new();
 
         //Constructor

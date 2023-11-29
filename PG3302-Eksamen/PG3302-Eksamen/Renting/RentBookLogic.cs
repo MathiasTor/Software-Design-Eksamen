@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PG3302_Eksamen.Media;
+﻿using PG3302_Eksamen.Media;
 using PG3302_Eksamen.User;
 
 namespace PG3302_Eksamen.Renting
 {
     public class RentBookLogic
     {
-        //Properties
+        //Field
         private SystemUser _user;
         RentBookDbLogic rentBookDbLogic = new();
 

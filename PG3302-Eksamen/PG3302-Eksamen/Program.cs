@@ -1,5 +1,4 @@
-﻿using PG3302_Eksamen.Database;
-using PG3302_Eksamen.UI;
+﻿using PG3302_Eksamen.UI;
 
 namespace PG3302_Eksamen
 {

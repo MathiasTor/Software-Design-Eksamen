@@ -1,9 +1,4 @@
 ﻿using PG3302_Eksamen.Media;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PG3302_Eksamen.Logic
 {
@@ -11,6 +6,8 @@ namespace PG3302_Eksamen.Logic
     {
         //Properties
         public List<Music> Songs { get; set; }
+
+        //Field
         readonly DbLogicMusic _dbLogic;
 
         //Constructor
@@ -19,6 +16,7 @@ namespace PG3302_Eksamen.Logic
             Songs = new List<Music> ();
         }
         
+        //Methods
         //Add a Song
         public void AddSong(string title, string artist, int releaseYear, string genre, int lengthInSeconds)
         {

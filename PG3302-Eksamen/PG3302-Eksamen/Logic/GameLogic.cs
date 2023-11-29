@@ -6,6 +6,8 @@ namespace PG3302_Eksamen.Logic
     {
         //Properties
         public List<Game> Games { get; set; }
+
+        //Field
         readonly DbLogicGame _dbLogic;
 
         //Constructor
@@ -15,6 +17,7 @@ namespace PG3302_Eksamen.Logic
             Games = new List<Game>();
         }
 
+        //Methods
         //Add a game
         public void AddGame(string title, string creator, int releaseYear, string genre, string platform)
         {

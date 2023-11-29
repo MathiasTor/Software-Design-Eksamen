@@ -1,15 +1,11 @@
 ﻿using PG3302_Eksamen.Database;
 using PG3302_Eksamen.Media;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PG3302_Eksamen.Logic
 {
     public class DbLogicMovie
     {
+        //Methods
         //Add movie to db
         public void AddMovieToDb(Movie movie)
         {

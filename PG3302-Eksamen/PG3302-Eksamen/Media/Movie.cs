@@ -8,7 +8,7 @@ namespace PG3302_Eksamen.Media
         //Properties
         public int? LengthInMinutes { get; set; }
         
-        //Constructor
+        //Constructors
         public Movie(string title, string creator, int releaseYear, string genre, int lengthInMinutes)
         {
             Title = title;

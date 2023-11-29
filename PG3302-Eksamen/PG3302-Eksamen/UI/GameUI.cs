@@ -1,26 +1,23 @@
 ﻿using PG3302_Eksamen.Logic;
 using PG3302_Eksamen.Media;
 using PG3302_Eksamen.User;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PG3302_Eksamen.UI
 {
     public class GameUI
     {       
+        //Fields
         private GameLogic _gameLogic = new(new DbLogicGame());
         private DbLogicGame _dbLogicGame = new();
         private SystemUser _user;
 
+        //Constructor
         public GameUI(SystemUser user)
         {
             this._user = user;
         }
 
+        //Methods
         public void GameMenu()
         {
 
@@ -113,7 +110,6 @@ namespace PG3302_Eksamen.UI
         {
             Console.WriteLine("Enter title of game to edit");
             String? titleToEdit = Console.ReadLine();
-            int counter = 0;
             Game gameToEdit = new();
 
             List<Game> gamesWithSameTitle = _dbLogicGame.GetAllGamesWithSameTitle(titleToEdit);
@@ -132,7 +128,7 @@ namespace PG3302_Eksamen.UI
                     int gameIdToEdit = Int32.Parse(Console.ReadLine());
                     gameToEdit = gamesWithSameTitle[gameIdToEdit - 1];
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Console.WriteLine("Invalid input!");
                     EditGame();
@@ -220,7 +216,7 @@ namespace PG3302_Eksamen.UI
                         break;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("Invalid input!");
                 EditGame(gameToEdit);
@@ -247,7 +243,6 @@ namespace PG3302_Eksamen.UI
             Console.Write("Enter the Title of the Game you wish to delete: ");
             string titleToDelete = Console.ReadLine();
             List<Game> gamesWithSameTitle = _dbLogicGame.GetAllGamesWithSameTitle(titleToDelete);
-            int counter = 0;
 
             Game gameToDelete = new();
 
@@ -264,7 +259,7 @@ namespace PG3302_Eksamen.UI
                     int gameIdToDelete = Int32.Parse(Console.ReadLine());
                     gameToDelete = (Game)gamesWithSameTitle[gameIdToDelete - 1];
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Console.WriteLine("Invalid input!");
                     DeleteGame();

@@ -9,7 +9,7 @@ namespace PG3302_Eksamen.Media
         //Properties
         public int? LengthInSeconds{ get; set; }
 
-        //Constructor
+        //Constructors
         public Music(string title, string creator, int releaseYear, string genre, int lengthInSeconds)
         {
             Title = title;

@@ -1,13 +1,7 @@
-using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.VisualBasic;
 using NUnit.Framework.Internal;
 using PG3302_Eksamen.Logic;
 using PG3302_Eksamen.Media;
-using System.Collections;
-using static System.Formats.Asn1.AsnWriter;
-using System.Transactions;
 using PG3302_Eksamen.Database;
-using System.ComponentModel;
 
 namespace PG3302_Eksamen_Tests
 {
@@ -47,7 +41,7 @@ namespace PG3302_Eksamen_Tests
 
             Book book = books[0];
 
-            // Asssert
+            // Assert
             Assert.IsTrue(books.Contains(book));
         }
     
@@ -69,7 +63,7 @@ namespace PG3302_Eksamen_Tests
 
             List<Book> books = bookLogic.Books;
 
-            // Asssert
+            // Assert
             Assert.That(books.Count(), Is.EqualTo(0));
         }
 
@@ -93,7 +87,7 @@ namespace PG3302_Eksamen_Tests
 
             bookLogic.EditBookTitle(bookToTest, "newTitle");
 
-            // Asssert
+            // Assert
             Assert.That(bookToTest.Title, Is.EqualTo("newTitle"));
             Assert.That(books[0].Title, Is.EqualTo("newTitle"));
         }
@@ -118,7 +112,7 @@ namespace PG3302_Eksamen_Tests
 
             bookLogic.EditBookAuthor(bookToTest, "newAuthor");
 
-            // Asssert
+            // Assert
             Assert.That(bookToTest.Creator, Is.EqualTo("newAuthor"));
             Assert.That(books[0].Creator, Is.EqualTo("newAuthor"));
         }
@@ -142,7 +136,7 @@ namespace PG3302_Eksamen_Tests
 
             bookLogic.EditBookReleaseYear(bookToTest, 999);
 
-            // Asssert
+            // Assert
             Assert.That(bookToTest.ReleaseYear, Is.EqualTo(999));
             Assert.That(books[0].ReleaseYear, Is.EqualTo(999));
         }
@@ -167,7 +161,7 @@ namespace PG3302_Eksamen_Tests
 
             bookLogic.EditBookGenre(bookToTest, "newGenre");
 
-            // Asssert
+            // Assert
             Assert.That(bookToTest.Genre, Is.EqualTo("newGenre"));
             Assert.That(books[0].Genre, Is.EqualTo("newGenre"));
         }
@@ -192,7 +186,7 @@ namespace PG3302_Eksamen_Tests
 
             bookLogic.EditBookPages(bookToTest, 999);
 
-            // Asssert
+            // Assert
             Assert.That(bookToTest.Pages, Is.EqualTo(999));
             Assert.That(books[0].Pages, Is.EqualTo(999));
         }

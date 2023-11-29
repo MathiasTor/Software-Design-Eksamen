@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PG3302_Eksamen.Media
 {
@@ -14,7 +8,7 @@ namespace PG3302_Eksamen.Media
         //Properties
         public string? Platform { get; set; }
 
-        //Constructor
+        //Constructors
         public Game(string title, string creator, int releaseYear, string genre, string platform)
         {
             Title = title;

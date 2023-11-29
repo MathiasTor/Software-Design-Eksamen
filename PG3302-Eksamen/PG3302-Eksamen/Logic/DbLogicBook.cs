@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using PG3302_Eksamen.Database;
+﻿using PG3302_Eksamen.Database;
 using PG3302_Eksamen.Media;
 using System.Collections;
 
@@ -8,6 +6,8 @@ namespace PG3302_Eksamen.Logic
 {
     public class DbLogicBook
     {
+
+        //Methods
         //Add book to db
         public void AddBookToDb(Book book)
         {

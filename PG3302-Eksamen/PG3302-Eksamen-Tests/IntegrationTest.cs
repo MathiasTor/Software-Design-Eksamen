@@ -3,11 +3,6 @@ using PG3302_Eksamen.Logic;
 using PG3302_Eksamen.Media;
 using PG3302_Eksamen.Renting;
 using PG3302_Eksamen.User;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PG3302_Eksamen_Tests
 {
@@ -62,7 +57,6 @@ namespace PG3302_Eksamen_Tests
             int ReleaseYear = 1943;
             string Genre = "fantasy";
             int Pages = 800;
-            BookLogic bookLogic = new(new DbLogicBook());
             DbLogicBook dbLogicBook = new();
 
             // Act
@@ -75,8 +69,8 @@ namespace PG3302_Eksamen_Tests
 
             Book book = books[0];
 
-            // Asssert
-            Assert.IsTrue(books.Contains(book));
+            // Assert
+            Assert.That(books, Does.Contain(book));
         }
 
         [Test]
@@ -89,7 +83,6 @@ namespace PG3302_Eksamen_Tests
             string Genre = "fantasy";
             int Pages = 800;
 
-            BookLogic bookLogic = new(new DbLogicBook());
             DbLogicBook dbLogicBook = new();
 
             // Act
@@ -102,8 +95,8 @@ namespace PG3302_Eksamen_Tests
 
             List<Book> books = dbLogicBook.GetAllBooks();
 
-            // Asssert
-            Assert.That(books.Count(), Is.EqualTo(0));
+            // Assert
+            Assert.That(books.Count, Is.EqualTo(0));
         }
 
         [Test]
@@ -115,7 +108,6 @@ namespace PG3302_Eksamen_Tests
             int ReleaseYear = 1943;
             string Genre = "fantasy";
             int Pages = 800;
-            BookLogic bookLogic = new(new DbLogicBook());
             DbLogicBook dbLogicBook = new();
 
             // Act
@@ -130,7 +122,7 @@ namespace PG3302_Eksamen_Tests
 
             Book book = books[0];
 
-            // Asssert
+            // Assert
             Assert.That(book.Title, Is.EqualTo("newTitle"));
         }
 
@@ -143,7 +135,6 @@ namespace PG3302_Eksamen_Tests
             int ReleaseYear = 1943;
             string Genre = "fantasy";
             int Pages = 800;
-            BookLogic bookLogic = new(new DbLogicBook());
             DbLogicBook dbLogicBook = new();
             RentBookDbLogic rentBookDbLogic = new();
 
@@ -156,8 +147,8 @@ namespace PG3302_Eksamen_Tests
 
             List<Book> rentableBooks = rentBookDbLogic.GetRentableBooks();
 
-            // Asssert
-            Assert.That(rentableBooks.Count(), Is.EqualTo(1));
+            // Assert
+            Assert.That(rentableBooks.Count, Is.EqualTo(1));
         }
 
         [Test]
@@ -169,7 +160,6 @@ namespace PG3302_Eksamen_Tests
             int ReleaseYear = 1943;
             string Genre = "fantasy";
             int Pages = 800;
-            BookLogic bookLogic = new(new DbLogicBook());
             DbLogicBook dbLogicBook = new();
             RentBookDbLogic rentBookDbLogic = new();
 
@@ -188,8 +178,8 @@ namespace PG3302_Eksamen_Tests
 
             List<RentedMedia> rentedMedia = rentMediaDbLogic.GetRentedMedia();
 
-            // Asssert
-            Assert.That(rentedMedia.Count(), Is.EqualTo(1));
+            // Assert
+            Assert.That(rentedMedia.Count, Is.EqualTo(1));
         }
 
         [Test]
@@ -201,7 +191,6 @@ namespace PG3302_Eksamen_Tests
             int ReleaseYear = 1943;
             string Genre = "fantasy";
             int Pages = 800;
-            BookLogic bookLogic = new(new DbLogicBook());
             DbLogicBook dbLogicBook = new();
             RentBookDbLogic rentBookDbLogic = new();
 
@@ -223,7 +212,7 @@ namespace PG3302_Eksamen_Tests
             List<Book> rentableBooks = rentBookDbLogic.GetRentableBooks();
 
             // Assert
-            Assert.That(rentableBooks.Count(), Is.EqualTo(1));
+            Assert.That(rentableBooks.Count, Is.EqualTo(1));
         }
     }
 }

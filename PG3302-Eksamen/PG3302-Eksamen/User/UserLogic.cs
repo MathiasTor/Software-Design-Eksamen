@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PG3302_Eksamen.User
+﻿namespace PG3302_Eksamen.User
 {
     public class UserLogic
     {
+        //Fields
         private List<SystemUser> _users = new ();
         private UserDbLogic _userDbLogic = new();
 
+        //Constructor
         public UserLogic()
         {
 
         }
 
+        //Methods
         //Add _user
         public void AddUser(SystemUser user)
         {
