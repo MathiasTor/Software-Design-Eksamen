@@ -20,7 +20,6 @@ namespace PG3302_Eksamen.Logic
                 db.Add(movie);
                 db.SaveChanges();
             }
-
         }
 
         //Delete movie from db
@@ -160,6 +159,17 @@ namespace PG3302_Eksamen.Logic
                 {
                     Console.WriteLine(movie);
                 }
+            }
+        }
+
+        internal List<Movie> GetAllMovies()
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                var movies = db.Movies.ToList();
+                return movies;
             }
         }
     }

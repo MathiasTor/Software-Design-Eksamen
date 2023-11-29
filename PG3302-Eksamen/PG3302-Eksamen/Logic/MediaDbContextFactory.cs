@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PG3302_Eksamen.Logic
 {
-    public class MediaDbContextFactory
+    public abstract class MediaDbContextFactory
     {
         public static DbContextOptions<MediaDbContext> Options()
         {

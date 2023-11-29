@@ -8,7 +8,6 @@ namespace PG3302_Eksamen.Logic
 {
     public class DbLogicBook
     {
-        //Books
         //Add book to db
         public void AddBookToDb(Book book)
         {
@@ -137,20 +136,6 @@ namespace PG3302_Eksamen.Logic
                 return books;
             }
         }
-
-        //Music
-        //Add Song to db
-        public void AddMusicToDb(Music music)
-        {
-            var options = MediaDbContextFactory.Options();
-
-            using (var db = new MediaDbContext(options))
-            {
-                db.Add(music);
-                db.SaveChanges();
-            }
-
-        }
         
 
         //Print all books
@@ -183,24 +168,6 @@ namespace PG3302_Eksamen.Logic
                     books.Add(book);
                 }
                 return books;
-            }
-        }
-
-        
-        //Print all Songs
-        public void PrintAllMusicFromDb()
-        {
-            var options = MediaDbContextFactory.Options();
-
-            using (var db = new MediaDbContext(options))
-            {
-                if (db.Music != null)
-                {
-                    foreach (Music music in db.Music)
-                    {
-                        Console.WriteLine(music);
-                    }
-                }
             }
         }
         

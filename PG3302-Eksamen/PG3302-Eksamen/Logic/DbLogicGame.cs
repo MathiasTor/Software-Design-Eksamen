@@ -165,5 +165,21 @@ namespace PG3302_Eksamen.Logic
                 return games;
             }
         }
+
+        //Get all games
+        public List<Game> GetAllGames()
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                List<Game> games = new List<Game>();
+                foreach (Game game in db.Games)
+                {
+                    games.Add(game);
+                }
+                return games;
+            }
+        }
     }
 }

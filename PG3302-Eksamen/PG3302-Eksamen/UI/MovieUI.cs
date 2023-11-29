@@ -6,7 +6,7 @@ namespace PG3302_Eksamen.UI
     public class MovieUI
     {
         DbLogicMovie dbLogicMovie = new();
-        MovieLogic movieLogic = new();
+        MovieLogic movieLogic = new(new DbLogicMovie());
 
         public void MovieMenu()
         {

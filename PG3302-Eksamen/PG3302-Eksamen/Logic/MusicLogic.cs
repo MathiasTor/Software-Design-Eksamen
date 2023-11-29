@@ -12,10 +12,11 @@ namespace PG3302_Eksamen.Logic
 
         public List<Music> Songs { get; set; }
 
-        DbLogicMusic DbLogic = new();
+        readonly DbLogicMusic DbLogic;
 
-        public MusicLogic () { 
-        Songs = new List<Music> ();
+        public MusicLogic (DbLogicMusic dbLogicMusic) {
+            DbLogic = dbLogicMusic;
+            Songs = new List<Music> ();
         }
         
         //Add a Song

@@ -5,10 +5,11 @@ namespace PG3302_Eksamen.Logic
     public class GameLogic
     {
         public List<Game> Games { get; set; }
-        DbLogicGame DbLogic = new();
+        readonly DbLogicGame DbLogic;
 
-        public GameLogic()
+        public GameLogic(DbLogicGame dbLogicGame)
         {
+            this.DbLogic = dbLogicGame;
             Games = new List<Game>();
         }
 
