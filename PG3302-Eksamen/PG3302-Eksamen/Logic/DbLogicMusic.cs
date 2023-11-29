@@ -170,7 +170,7 @@ namespace PG3302_Eksamen.Logic
 
             using (var db = new MediaDbContext(options))
             {
-                var music = db.Music.ToList();
+                List<Music> music = db.Music.ToList();
                 return music;
             }
         }

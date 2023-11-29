@@ -162,11 +162,7 @@ namespace PG3302_Eksamen.Logic
 
             using (var db = new MediaDbContext(options))
             {
-                List<Book> books = new();
-                foreach (Book book in db.Books)
-                {
-                    books.Add(book);
-                }
+                List<Book> books = db.Books.ToList();
                 return books;
             }
         }

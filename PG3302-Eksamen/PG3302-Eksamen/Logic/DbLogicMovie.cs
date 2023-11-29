@@ -168,7 +168,7 @@ namespace PG3302_Eksamen.Logic
 
             using (var db = new MediaDbContext(options))
             {
-                var movies = db.Movies.ToList();
+                List<Movie> movies = db.Movies.ToList();
                 return movies;
             }
         }
