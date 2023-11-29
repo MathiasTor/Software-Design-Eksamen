@@ -241,7 +241,7 @@ namespace PG3302_Eksamen.UI
         public void EditBook(Book book)
         {
             Console.Clear();
-            Console.WriteLine("Book to edit:");
+            Console.WriteLine("Editing:");
             Console.WriteLine(book + "\n");
 
             Console.WriteLine("What would you like to edit? \n" +

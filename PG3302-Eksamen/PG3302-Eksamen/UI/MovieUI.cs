@@ -222,6 +222,8 @@ namespace PG3302_Eksamen.UI
         private void EditMovie(Movie movieToEdit)
         {
             Console.Clear();
+            Console.WriteLine("Editing: ");
+            Console.WriteLine(movieToEdit);
             Console.WriteLine("What would you like to edit?\n" +
                               "1. Title\n" +
                               "2. Creator\n" +
