@@ -13,7 +13,7 @@ namespace PG3302_Eksamen.UI
     public class GameUI
     {       
         
-        public GameLogic GameLogic = new(new DbLogicGame());
+        private GameLogic _gameLogic = new(new DbLogicGame());
         private DbLogicGame _dbLogicGame = new();
         private SystemUser _user;
 
@@ -73,10 +73,14 @@ namespace PG3302_Eksamen.UI
 
         public void DisplayGames()
         {
-            Console.WriteLine("\n" + 
-                              "------------------" +
-                              "\n");
-            GameLogic.DisplayGames();
+            Console.Clear();
+            Console.WriteLine("\n" +
+                "------------------" +
+                "\n");
+            _gameLogic.DisplayGames();
+            Console.WriteLine("\n" +
+                "------------------" +
+                "\n");
 
             GameMenu();
 
@@ -100,7 +104,7 @@ namespace PG3302_Eksamen.UI
             Console.Write("Game Platform: ");
             string platform = Console.ReadLine();
 
-            GameLogic.AddGame(title, creator, releaseYear, genre, platform);
+            _gameLogic.AddGame(title, creator, releaseYear, genre, platform);
 
             GameMenu();
         }
@@ -176,31 +180,31 @@ namespace PG3302_Eksamen.UI
                     case 1:
                         Console.Write("Enter new title: ");
                         string newTitle = Console.ReadLine();
-                        GameLogic.EditGameTitle(gameToEdit, newTitle);
+                        _gameLogic.EditGameTitle(gameToEdit, newTitle);
                         break;
 
                     case 2:
                         Console.Write("Enter new creator: ");
                         string newCreator = Console.ReadLine();
-                        GameLogic.EditGameCreator(gameToEdit, newCreator);
+                        _gameLogic.EditGameCreator(gameToEdit, newCreator);
                         break;
 
                     case 3:
                         Console.Write("Enter new release year: ");
                         int newReleaseYear = Int32.Parse(Console.ReadLine());
-                        GameLogic.EditGameReleaseYear(gameToEdit, newReleaseYear);
+                        _gameLogic.EditGameReleaseYear(gameToEdit, newReleaseYear);
                         break;
 
                     case 4:
                         Console.Write("Enter new genre: ");
                         string newGenre = Console.ReadLine();
-                        GameLogic.EditGameGenre(gameToEdit, newGenre);
+                        _gameLogic.EditGameGenre(gameToEdit, newGenre);
                         break;
 
                     case 5:
                         Console.Write("Enter new platform: ");
                         string newPlatform = Console.ReadLine();
-                        GameLogic.EditGamePlatform(gameToEdit, newPlatform);
+                        _gameLogic.EditGamePlatform(gameToEdit, newPlatform);
                         break;
 
                     case 9:
@@ -283,7 +287,7 @@ namespace PG3302_Eksamen.UI
 
         private void DeleteGame(Game game)
         {
-            GameLogic.RemoveGame(game);
+            _gameLogic.RemoveGame(game);
             Console.WriteLine("Game deleted!");
             Console.WriteLine("Delete more? Y/N");
             string answer = Console.ReadLine();

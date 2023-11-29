@@ -70,6 +70,7 @@ namespace PG3302_Eksamen.UI
 
         private void DisplayBooks()
         {
+            Console.Clear();
             Console.WriteLine("\n" +
                 "------------------" +
                 "\n");

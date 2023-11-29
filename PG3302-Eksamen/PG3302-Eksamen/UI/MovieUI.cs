@@ -286,7 +286,15 @@ namespace PG3302_Eksamen.UI
         }
 
         public void DisplayMovies() {
+            Console.Clear();
+            Console.WriteLine("\n" +
+                "------------------" +
+                "\n");
             _movieLogic.DisplayMovies();
+            Console.WriteLine("\n" +
+                "------------------" +
+                "\n");
+
             MovieMenu();
         }
 
