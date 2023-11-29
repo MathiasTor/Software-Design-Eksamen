@@ -8,8 +8,8 @@ namespace PG3302_Eksamen.User
 {
     public class UserLogic
     {
-        List<SystemUser> _users = new ();
-        UserDbLogic _userDbLogic = new();
+        private List<SystemUser> _users = new ();
+        private UserDbLogic _userDbLogic = new();
 
         public UserLogic()
         {

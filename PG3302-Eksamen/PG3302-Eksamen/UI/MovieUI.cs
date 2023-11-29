@@ -6,9 +6,9 @@ namespace PG3302_Eksamen.UI
 {
     public class MovieUI
     {
-        DbLogicMovie _dbLogicMovie = new();
-        MovieLogic _movieLogic = new(new DbLogicMovie());
-        SystemUser _user;
+        private DbLogicMovie _dbLogicMovie = new();
+        private MovieLogic _movieLogic = new(new DbLogicMovie());
+        private SystemUser _user;
 
         public MovieUI(SystemUser user)
         {

@@ -11,11 +11,11 @@ namespace PG3302_Eksamen.UI
 
         public BookLogic bookLogic = new(new DbLogicBook());
         private DbLogicBook _dbLogic = new();
-        SystemUser user;
+        private SystemUser _user;
  
         public BookUI(SystemUser user)
         {
-            this.user = user;
+            this._user = user;
         }
 
         public void BookMenu()
@@ -302,7 +302,7 @@ namespace PG3302_Eksamen.UI
         {
               Console.Clear();
               ConsoleApp consoleApp = new();
-              consoleApp.MainMenu(user);
+              consoleApp.MainMenu(_user);
         }
       
     }

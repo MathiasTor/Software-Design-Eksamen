@@ -12,7 +12,7 @@ namespace PG3302_Eksamen.Renting
 {
     internal class RentGameDbLogic
     {
-        DbLogicGame _dbLogicGame = new();
+        private DbLogicGame _dbLogicGame = new();
 
         public RentGameDbLogic()
         {

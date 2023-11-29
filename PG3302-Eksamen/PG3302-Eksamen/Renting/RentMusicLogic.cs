@@ -10,9 +10,9 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMusicLogic
     {
-        SystemUser _user;
+        private SystemUser _user;
 
-        RentMusicDbLogic _rentMusicDbLogic = new();
+        private RentMusicDbLogic _rentMusicDbLogic = new();
 
         public RentMusicLogic(SystemUser user)
         {

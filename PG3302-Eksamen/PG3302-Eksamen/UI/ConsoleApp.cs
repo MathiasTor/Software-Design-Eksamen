@@ -7,7 +7,7 @@ namespace PG3302_Eksamen.UI
     public class ConsoleApp
     {
 
-        UserLogic _userLogic = new();
+        private UserLogic _userLogic = new();
 
         public void RunProgram()
         {

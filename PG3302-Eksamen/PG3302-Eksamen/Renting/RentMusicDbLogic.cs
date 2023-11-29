@@ -12,7 +12,7 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMusicDbLogic
     {
-        DbLogicMusic _dbLogic = new();
+        private DbLogicMusic _dbLogic = new();
 
         public RentMusicDbLogic()
         {

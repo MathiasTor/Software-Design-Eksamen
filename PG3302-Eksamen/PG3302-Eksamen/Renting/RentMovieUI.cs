@@ -11,7 +11,7 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMovieUI
     {
-        SystemUser _user;
+        private SystemUser _user;
 
         public RentMovieUI(SystemUser user)
         {

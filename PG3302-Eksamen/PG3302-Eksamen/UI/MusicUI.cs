@@ -13,7 +13,7 @@ namespace PG3302_Eksamen.UI
     {
 
         public MusicLogic MusicLogic = new(new DbLogicMusic());
-        SystemUser _user;
+        private SystemUser _user;
 
         public MusicUI(SystemUser user)
         {

@@ -14,7 +14,7 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentBookDbLogic
     {
-        DbLogicBook _dbLogic = new();
+        private DbLogicBook _dbLogic = new();
 
         public RentBookDbLogic()
         {

@@ -13,7 +13,7 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMediaDbLogic
     {
-        SystemUser _user;
+        private SystemUser _user;
 
         public RentMediaDbLogic(SystemUser user)
         {

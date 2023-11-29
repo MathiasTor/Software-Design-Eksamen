@@ -12,7 +12,7 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMovieDbLogic
     {
-        DbLogicMovie _dbLogicMovie = new();
+        private DbLogicMovie _dbLogicMovie = new();
 
         public RentMovieDbLogic()
         {

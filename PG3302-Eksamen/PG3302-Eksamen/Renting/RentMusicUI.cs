@@ -11,7 +11,7 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentMusicUI
     {
-        readonly SystemUser _user;
+        private SystemUser _user;
 
         public RentMusicUI(SystemUser user)
         {

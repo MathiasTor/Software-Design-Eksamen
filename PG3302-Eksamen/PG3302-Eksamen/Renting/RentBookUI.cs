@@ -12,7 +12,7 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentBookUI
     {
-        SystemUser _user;
+        private SystemUser _user;
         public RentBookUI(SystemUser user)
         {
             this._user = user;

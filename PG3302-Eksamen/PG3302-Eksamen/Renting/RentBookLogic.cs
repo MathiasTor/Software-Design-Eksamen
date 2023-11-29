@@ -11,7 +11,7 @@ namespace PG3302_Eksamen.Renting
 {
     public class RentBookLogic
     {
-        SystemUser _user;
+        private SystemUser _user;
 
         RentBookDbLogic rentBookDbLogic = new();
         public RentBookLogic(SystemUser user)
