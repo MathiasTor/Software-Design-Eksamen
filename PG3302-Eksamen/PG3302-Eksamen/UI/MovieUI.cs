@@ -91,8 +91,8 @@ namespace PG3302_Eksamen.UI
         private void BackToMainMenu()
         {
             Console.Clear();
-            ConsoleApp mainMenu = new();
-            mainMenu.MainMenu(_user);
+            MainMenu mainMenu = new();
+            mainMenu.DisplayMainMenu(_user);
         }
 
         private void DeleteMovie()

@@ -3,7 +3,7 @@ using PG3302_Eksamen.User;
 
 namespace PG3302_Eksamen.UI
 {
-    public class ConsoleApp
+    public class MainMenu
     {
 
         //Fields
@@ -94,7 +94,7 @@ namespace PG3302_Eksamen.UI
 
                 SystemUser user = new(username, "", password, false);
 
-                MainMenu(user);
+                DisplayMainMenu(user);
 
             }
             else
@@ -104,7 +104,7 @@ namespace PG3302_Eksamen.UI
                 LoginMenu();
             }
         }
-        public void MainMenu(SystemUser user)
+        public void DisplayMainMenu(SystemUser user)
         {
             
             Console.WriteLine("Welcome the the Library of Media!\n" +
@@ -156,7 +156,7 @@ namespace PG3302_Eksamen.UI
                     break;
                 default:
                     Console.WriteLine("Invalid input! (1,2,3,4,5,0,9)");
-                    MainMenu(user);
+                    DisplayMainMenu(user);
                     break;
 
             }

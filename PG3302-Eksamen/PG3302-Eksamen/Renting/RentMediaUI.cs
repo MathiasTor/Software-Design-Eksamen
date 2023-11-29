@@ -164,8 +164,8 @@ namespace PG3302_Eksamen.Renting
         //Main menu
         private void MainMenu(SystemUser user)
         {
-            ConsoleApp mainMenu = new();
-            mainMenu.MainMenu(user);
+            MainMenu mainMenu = new();
+            mainMenu.DisplayMainMenu(user);
         }
 
         //Rent game menu

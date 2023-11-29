@@ -6,7 +6,7 @@ namespace PG3302_Eksamen
     {
         static void Main(string[] args)
         {
-            ConsoleApp mainMenu = new();
+            MainMenu mainMenu = new();
             mainMenu.RunProgram();     
         }
     }

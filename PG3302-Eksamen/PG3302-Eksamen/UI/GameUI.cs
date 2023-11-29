@@ -310,8 +310,8 @@ namespace PG3302_Eksamen.UI
         private void BackToMainMenu()
         {
             Console.Clear();
-            ConsoleApp consoleApp = new();
-            consoleApp.MainMenu(_user);
+            MainMenu consoleApp = new();
+            consoleApp.DisplayMainMenu(_user);
         }
     }
 }
