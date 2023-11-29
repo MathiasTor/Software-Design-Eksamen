@@ -44,6 +44,5 @@ namespace PG3302_Eksamen.Database
             modelBuilder.Entity<SystemUser>().ToTable("Users");
             modelBuilder.Entity<RentedMedia>().ToTable("RentedMedia");
         }
-
     }
 }

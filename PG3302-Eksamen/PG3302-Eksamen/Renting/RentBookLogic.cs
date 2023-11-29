@@ -19,7 +19,7 @@ namespace PG3302_Eksamen.Renting
             this.user = user;
         }
 
-        public ArrayList GetRentableBooks()
+        public List<Book> GetRentableBooks()
         {
             return rentBookDbLogic.GetRentableBooks();
         }

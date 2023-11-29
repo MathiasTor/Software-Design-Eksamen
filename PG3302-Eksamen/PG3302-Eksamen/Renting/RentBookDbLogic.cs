@@ -20,9 +20,9 @@ namespace PG3302_Eksamen.Renting
         {
         }
 
-        public ArrayList GetRentableBooks()
+        public List<Book> GetRentableBooks()
         {
-            ArrayList books = dbLogic.GetAllBooks();
+            List<Book> books = dbLogic.GetAllBooks();
             ArrayList rentedBooks = new();
 
             var options = MediaDbContextFactory.Options();

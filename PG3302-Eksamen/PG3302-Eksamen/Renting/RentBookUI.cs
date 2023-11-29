@@ -22,7 +22,7 @@ namespace PG3302_Eksamen.Renting
         {
             RentBookLogic rentBookLogic = new(user);
 
-            ArrayList rentableBooks = rentBookLogic.GetRentableBooks();
+            List<Book> rentableBooks = rentBookLogic.GetRentableBooks();
 
             Console.Clear();
 

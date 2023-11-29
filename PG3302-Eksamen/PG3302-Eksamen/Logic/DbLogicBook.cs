@@ -156,13 +156,13 @@ namespace PG3302_Eksamen.Logic
         }
 
         //Return all books as arraylist
-        public ArrayList GetAllBooks()
+        public List<Book> GetAllBooks()
         {
             var options = MediaDbContextFactory.Options();
 
             using (var db = new MediaDbContext(options))
             {
-                ArrayList books = new ArrayList();
+                List<Book> books = new();
                 foreach (Book book in db.Books)
                 {
                     books.Add(book);

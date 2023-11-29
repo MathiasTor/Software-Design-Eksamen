@@ -70,7 +70,7 @@ namespace PG3302_Eksamen.Renting
             RentMediaDbLogic rentMediaDbLogic = new(user);
             List<RentedMedia> rentedMedia = rentMediaDbLogic.GetRentedMedia();
 
-            ArrayList books = dbLogicBook.GetAllBooks();
+            List<Book> books = dbLogicBook.GetAllBooks();
             List<Movie> movies = dbLogicMovie.GetAllMovies();
             List<Music> music = dbLogicMusic.GetAllMusic();
             List<Game> games = dbLogicGame.GetAllGames();

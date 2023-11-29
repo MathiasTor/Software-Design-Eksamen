@@ -7,11 +7,27 @@ using System.Collections;
 using static System.Formats.Asn1.AsnWriter;
 using System.Transactions;
 using PG3302_Eksamen.Database;
+using System.ComponentModel;
 
 namespace PG3302_Eksamen_Tests
 {
     public class Tests
     {
+        [TearDown]
+        public void TearDown()
+        {
+            var options = MediaDbContextFactory.Options();
+
+            using (var db = new MediaDbContext(options))
+            {
+                foreach (Book book in db.Books)
+                {
+                    db.Books.Remove(book);
+                    db.SaveChanges();
+                }
+            }
+        }
+
         [Test]
         public void Add_Book_ShouldBeAddedToList()
         {
@@ -29,8 +45,10 @@ namespace PG3302_Eksamen_Tests
 
             List<Book> books = bookLogic.Books;
 
+            Book book = books[0];
+
             // Asssert
-            Assert.That(books.Count() == 1);
+            Assert.IsTrue(books.Contains(book));
         }
     
         [Test]
@@ -52,7 +70,7 @@ namespace PG3302_Eksamen_Tests
             List<Book> books = bookLogic.Books;
 
             // Asssert
-            Assert.That(books.Count() == 0);
+            Assert.That(books.Count(), Is.EqualTo(0));
         }
 
         [Test]
@@ -76,8 +94,8 @@ namespace PG3302_Eksamen_Tests
             bookLogic.EditBookTitle(bookToTest, "newTitle");
 
             // Asssert
-            Assert.That(bookToTest.Title == "newTitle");
-            Assert.That(books[0].Title == "newTitle");
+            Assert.That(bookToTest.Title, Is.EqualTo("newTitle"));
+            Assert.That(books[0].Title, Is.EqualTo("newTitle"));
         }
 
         [Test]
@@ -101,8 +119,8 @@ namespace PG3302_Eksamen_Tests
             bookLogic.EditBookAuthor(bookToTest, "newAuthor");
 
             // Asssert
-            Assert.That(bookToTest.Creator == "newAuthor");
-            Assert.That(books[0].Creator == "newAuthor");
+            Assert.That(bookToTest.Creator, Is.EqualTo("newAuthor"));
+            Assert.That(books[0].Creator, Is.EqualTo("newAuthor"));
         }
         [Test]
         public void Edit_BookRelease_ShouldBeChanged()
@@ -125,8 +143,8 @@ namespace PG3302_Eksamen_Tests
             bookLogic.EditBookReleaseYear(bookToTest, 999);
 
             // Asssert
-            Assert.That(bookToTest.ReleaseYear == 999);
-            Assert.That(books[0].ReleaseYear == 999);
+            Assert.That(bookToTest.ReleaseYear, Is.EqualTo(999));
+            Assert.That(books[0].ReleaseYear, Is.EqualTo(999));
         }
 
         [Test]
@@ -150,8 +168,8 @@ namespace PG3302_Eksamen_Tests
             bookLogic.EditBookGenre(bookToTest, "newGenre");
 
             // Asssert
-            Assert.That(bookToTest.Genre == "newGenre");
-            Assert.That(books[0].Genre == "newGenre");
+            Assert.That(bookToTest.Genre, Is.EqualTo("newGenre"));
+            Assert.That(books[0].Genre, Is.EqualTo("newGenre"));
         }
 
         [Test]
@@ -175,8 +193,8 @@ namespace PG3302_Eksamen_Tests
             bookLogic.EditBookPages(bookToTest, 999);
 
             // Asssert
-            Assert.That(bookToTest.Pages == 999);
-            Assert.That(books[0].Pages == 999);
+            Assert.That(bookToTest.Pages, Is.EqualTo(999));
+            Assert.That(books[0].Pages, Is.EqualTo(999));
         }
     }
      
