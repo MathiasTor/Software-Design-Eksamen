@@ -12,36 +12,31 @@ namespace PG3302_Eksamen_Tests
 {
     public class Tests
     {
-
-        [SetUp]
-        public void SetUp()
-        {
-            var options = MediaDbContextFactory.Options();
-
-            using (var db = new MediaDbContext(options))
-            {
-                foreach (Book book in db.Books)
-                {
-                    db.Remove(book);
-                    db.SaveChanges();
-                }
-            }
-
-
-        }
-
-        [TearDown] public void TearDown() {
-           
-        }
-
-
-        
         [Test]
-        public void AddBook()
+        public void Add_Book_ShouldBeAddedToList()
         {
-            using (TransactionScope scope = new TransactionScope()) ;
+            // Arrange
+            string Title = "testingname";
+            string Creator = "tolkien";
+            int ReleaseYear = 1943;
+            string Genre = "fantasy";
+            int Pages = 800;
+            BookLogic bookLogic = new(new DbLogicBook());
 
-                // Arrange
+            // Act
+
+            bookLogic.AddBook(Title, Creator, ReleaseYear, Genre, Pages);
+
+            List<Book> books = bookLogic.Books;
+
+            // Asssert
+            Assert.That(books.Count() == 1);
+        }
+    
+        [Test]
+        public void Remove_Book_ListShouldBeEmpty()
+        {
+            // Arrange
             string Title = "testingname";
             string Creator = "tolkien";
             int ReleaseYear = 1943;
@@ -52,40 +47,137 @@ namespace PG3302_Eksamen_Tests
             // Act
             bookLogic.AddBook(Title, Creator, ReleaseYear, Genre, Pages);
 
+            bookLogic.RemoveBook(bookLogic.Books[0]);
+
+            List<Book> books = bookLogic.Books;
 
             // Asssert
-            Assert.That(bookLogic.CheckIfBookExists("testingname"));
-
-
-
-
+            Assert.That(books.Count() == 0);
         }
-    
-        [Test]
-        public void GetAllBooks() {
 
+        [Test]
+        public void Edit_BookTitle_ShouldBeChanged()
+        {
+            // Arrange
             string Title = "testingname";
             string Creator = "tolkien";
             int ReleaseYear = 1943;
             string Genre = "fantasy";
             int Pages = 800;
+            BookLogic bookLogic = new(new DbLogicBook());
 
+            // Act
+            bookLogic.AddBook(Title, Creator, ReleaseYear, Genre, Pages);
 
-            Book bookTest = new Book(Title, Creator, ReleaseYear, Genre, Pages);
-            DbLogicBook database = new();
+            List<Book> books = bookLogic.Books;
 
+            Book bookToTest = bookLogic.Books[0];
 
-            ArrayList bookList = database.GetAllBooks();
-            foreach (var book in bookList)
-            {
-                Console.WriteLine(book);
-            }
+            bookLogic.EditBookTitle(bookToTest, "newTitle");
 
-
-            Assert.That(bookList.Contains(bookTest), Is.True);
+            // Asssert
+            Assert.That(bookToTest.Title == "newTitle");
+            Assert.That(books[0].Title == "newTitle");
         }
-     
-    }
-   
 
+        [Test]
+        public void Edit_BookAuthor_ShouldBeChanged()
+        {
+            // Arrange
+            string Title = "testingname";
+            string Creator = "tolkien";
+            int ReleaseYear = 1943;
+            string Genre = "fantasy";
+            int Pages = 800;
+            BookLogic bookLogic = new(new DbLogicBook());
+
+            // Act
+            bookLogic.AddBook(Title, Creator, ReleaseYear, Genre, Pages);
+
+            List<Book> books = bookLogic.Books;
+
+            Book bookToTest = bookLogic.Books[0];
+
+            bookLogic.EditBookAuthor(bookToTest, "newAuthor");
+
+            // Asssert
+            Assert.That(bookToTest.Creator == "newAuthor");
+            Assert.That(books[0].Creator == "newAuthor");
+        }
+        [Test]
+        public void Edit_BookRelease_ShouldBeChanged()
+        {
+            // Arrange
+            string Title = "testingname";
+            string Creator = "tolkien";
+            int ReleaseYear = 1943;
+            string Genre = "fantasy";
+            int Pages = 800;
+            BookLogic bookLogic = new(new DbLogicBook());
+
+            // Act
+            bookLogic.AddBook(Title, Creator, ReleaseYear, Genre, Pages);
+
+            List<Book> books = bookLogic.Books;
+
+            Book bookToTest = bookLogic.Books[0];
+
+            bookLogic.EditBookReleaseYear(bookToTest, 999);
+
+            // Asssert
+            Assert.That(bookToTest.ReleaseYear == 999);
+            Assert.That(books[0].ReleaseYear == 999);
+        }
+
+        [Test]
+        public void Edit_BookGenre_ShouldBeChanged()
+        {
+            // Arrange
+            string Title = "testingname";
+            string Creator = "tolkien";
+            int ReleaseYear = 1943;
+            string Genre = "fantasy";
+            int Pages = 800;
+            BookLogic bookLogic = new(new DbLogicBook());
+
+            // Act
+            bookLogic.AddBook(Title, Creator, ReleaseYear, Genre, Pages);
+
+            List<Book> books = bookLogic.Books;
+
+            Book bookToTest = bookLogic.Books[0];
+
+            bookLogic.EditBookGenre(bookToTest, "newGenre");
+
+            // Asssert
+            Assert.That(bookToTest.Genre == "newGenre");
+            Assert.That(books[0].Genre == "newGenre");
+        }
+
+        [Test]
+        public void Edit_BookPages_ShouldBeChanged()
+        {
+            // Arrange
+            string Title = "testingname";
+            string Creator = "tolkien";
+            int ReleaseYear = 1943;
+            string Genre = "fantasy";
+            int Pages = 800;
+            BookLogic bookLogic = new(new DbLogicBook());
+
+            // Act
+            bookLogic.AddBook(Title, Creator, ReleaseYear, Genre, Pages);
+
+            List<Book> books = bookLogic.Books;
+
+            Book bookToTest = bookLogic.Books[0];
+
+            bookLogic.EditBookPages(bookToTest, 999);
+
+            // Asssert
+            Assert.That(bookToTest.Pages == 999);
+            Assert.That(books[0].Pages == 999);
+        }
+    }
+     
 }
