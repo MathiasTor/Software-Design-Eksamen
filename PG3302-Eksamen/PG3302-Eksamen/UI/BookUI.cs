@@ -1,5 +1,6 @@
 ﻿using PG3302_Eksamen.Logic;
 using PG3302_Eksamen.Media;
+using PG3302_Eksamen.User;
 using System.Collections;
 
 namespace PG3302_Eksamen.UI
@@ -10,7 +11,12 @@ namespace PG3302_Eksamen.UI
 
         public BookLogic bookLogic = new(new DbLogicBook());
         private DbLogicBook DbLogic = new();
+        SystemUser user;
  
+        public BookUI(SystemUser user)
+        {
+            this.user = user;
+        }
 
         public void BookMenu()
         {
@@ -36,13 +42,16 @@ namespace PG3302_Eksamen.UI
                     DisplayBooks();
                     break;
 
-                case "2": AddBook();
+                case "2": 
+                    AddBook();
                     break;
 
-                case "3": EditBook();
+                case "3": 
+                    EditBook();
                     break;
 
-                case "4": DeleteBook();
+                case "4": 
+                    DeleteBook();
                     break;
 
                 case "9":
@@ -92,8 +101,6 @@ namespace PG3302_Eksamen.UI
             int pages = Int32.Parse(Console.ReadLine());
 
             bookLogic.AddBook(title, author, year, genre, pages);
-
-            bookLogic.DisplayBooks();
             
             BookMenu();
 
@@ -291,13 +298,11 @@ namespace PG3302_Eksamen.UI
 
         }
 
-        private static void BackToMainMenu()
+        private void BackToMainMenu()
         {
               Console.Clear();
               ConsoleApp consoleApp = new();
-              consoleApp.RunProgram();
-        
-
+              consoleApp.MainMenu(user);
         }
       
     }

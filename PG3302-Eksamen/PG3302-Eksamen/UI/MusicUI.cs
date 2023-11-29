@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PG3302_Eksamen.Logic;
 using PG3302_Eksamen.Media;
+using PG3302_Eksamen.User;
 
 namespace PG3302_Eksamen.UI
 {
@@ -12,6 +13,12 @@ namespace PG3302_Eksamen.UI
     {
 
         public MusicLogic musicLogic = new(new DbLogicMusic());
+        SystemUser user;
+
+        public MusicUI(SystemUser user)
+        {
+            this.user = user;
+        }
 
         public void MusicMenu()
         {
@@ -37,16 +44,20 @@ namespace PG3302_Eksamen.UI
                     DisplaySongs();
                     break;
                 
-                case 2: AddSong();
+                case 2: 
+                    AddSong();
                     break;
                 
-                case 3: EditSong();
+                case 3: 
+                    EditSong();
                     break;
                 
-                case 4: DeleteSong();
+                case 4: 
+                    DeleteSong();
                     break;
                 
-                case 9: BackToMainMenu();
+                case 9: 
+                    BackToMainMenu();
                      break;
                 
                 
@@ -291,8 +302,6 @@ namespace PG3302_Eksamen.UI
             int lengthInSeconds = Int32.Parse(Console.ReadLine());
 
             musicLogic.AddSong(title, creator, year, genre, lengthInSeconds);
-
-            musicLogic.DisplaySongs();
             
             MusicMenu();
 
@@ -301,9 +310,9 @@ namespace PG3302_Eksamen.UI
         
         private void BackToMainMenu()
         {
-
+            Console.Clear();
             ConsoleApp consoleApp = new();
-            consoleApp.RunProgram();
+            consoleApp.MainMenu(user);
             
         }
         

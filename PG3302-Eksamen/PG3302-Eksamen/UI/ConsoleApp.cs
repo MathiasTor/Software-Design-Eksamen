@@ -6,12 +6,6 @@ namespace PG3302_Eksamen.UI
 {
     public class ConsoleApp
     {
-       
-
-        BookUI bookUI = new();
-        GameUI gameUI = new();
-        MusicUI musicUI = new();
-        MovieUI movieUI = new();
 
         UserLogic userLogic = new();
 
@@ -112,13 +106,14 @@ namespace PG3302_Eksamen.UI
         public void MainMenu(SystemUser user)
         {
             
-            Console.WriteLine("Welcome the the Library of Media - Admin menu!\n" +
+            Console.WriteLine("Welcome the the Library of Media!\n" +
                 "Please choose what type of media you would like to access:\n\n" +
                 "1. Books\n" +
                 "2. Movies\n" +
                 "3. Music\n" +
                 "4. Games\n\n" +
-                "5. Renting\n" +
+                "5. Renting\n\n" +
+                "9. Logout\n" +
                 "\nIf you would like to exit the program, please type 0.\n\n");
             Console.Write("Write your choice here: ");
 
@@ -130,29 +125,37 @@ namespace PG3302_Eksamen.UI
             {
 
                 case 0:
-                    Console.WriteLine("program still running!");
                     break;
 
                 case 1:
-
+                    BookUI bookUI = new(user);
                     bookUI.BookMenu();
                     break;
 
                 case 2:
+                    MovieUI movieUI = new(user);
                     movieUI.MovieMenu();
                     break;
 
                 case 3:
-                    
+                    MusicUI musicUI = new(user);
                     musicUI.MusicMenu();
                     break;
 
                 case 4:
+                    GameUI gameUI = new(user);
                     gameUI.GameMenu();
                     break;
                 case 5:
                     RentMediaUI rentMediaUI = new();
                     rentMediaUI.RentMediaMenu(user);
+                    break;
+                case 9:
+                    RunProgram();
+                    break;
+                default:
+                    Console.WriteLine("Invalid input! (1,2,3,4,5,0,9)");
+                    MainMenu(user);
                     break;
 
             }

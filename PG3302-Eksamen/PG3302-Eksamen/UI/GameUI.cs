@@ -1,5 +1,6 @@
 ﻿using PG3302_Eksamen.Logic;
 using PG3302_Eksamen.Media;
+using PG3302_Eksamen.User;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +15,13 @@ namespace PG3302_Eksamen.UI
         
         public GameLogic gameLogic = new(new DbLogicGame());
         private DbLogicGame dbLogicGame = new();
+        SystemUser user;
+
+        public GameUI(SystemUser user)
+        {
+            this.user = user;
+        }
+
         public void GameMenu()
         {
 
@@ -93,8 +101,6 @@ namespace PG3302_Eksamen.UI
             string platform = Console.ReadLine();
 
             gameLogic.AddGame(title, creator, releaseYear, genre, platform);
-
-            gameLogic.DisplayGames();
 
             GameMenu();
         }
@@ -304,11 +310,9 @@ namespace PG3302_Eksamen.UI
 
         private void BackToMainMenu()
         {
-
+            Console.Clear();
             ConsoleApp consoleApp = new();
-            consoleApp.RunProgram();
-        
-
+            consoleApp.MainMenu(user);
         }
     }
 }

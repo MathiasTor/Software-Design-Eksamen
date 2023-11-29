@@ -1,5 +1,6 @@
 ﻿using PG3302_Eksamen.Logic;
 using PG3302_Eksamen.Media;
+using PG3302_Eksamen.User;
 
 namespace PG3302_Eksamen.UI
 {
@@ -7,6 +8,12 @@ namespace PG3302_Eksamen.UI
     {
         DbLogicMovie dbLogicMovie = new();
         MovieLogic movieLogic = new(new DbLogicMovie());
+        SystemUser user;
+
+        public MovieUI(SystemUser user)
+        {
+            this.user = user;
+        }
 
         public void MovieMenu()
         {
@@ -81,8 +88,9 @@ namespace PG3302_Eksamen.UI
 
         private void BackToMainMenu()
         {
+            Console.Clear();
             ConsoleApp mainMenu = new();
-            mainMenu.RunProgram();
+            mainMenu.MainMenu(user);
         }
 
         private void DeleteMovie()
