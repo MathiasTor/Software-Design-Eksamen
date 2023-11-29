@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace PG3302_Eksamen.Media
+﻿namespace PG3302_Eksamen.Media
 {
     public abstract class Media
     {
