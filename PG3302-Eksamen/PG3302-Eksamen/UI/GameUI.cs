@@ -101,6 +101,14 @@ namespace PG3302_Eksamen.UI
             string platform = Console.ReadLine();
 
             Console.Clear();
+
+            if (title == "")
+            {
+                Console.WriteLine("You need to enter a title!");
+                GameMenu();
+                return;
+            }
+
             _gameLogic.AddGame(title, creator, releaseYear, genre, platform);
 
             GameMenu();

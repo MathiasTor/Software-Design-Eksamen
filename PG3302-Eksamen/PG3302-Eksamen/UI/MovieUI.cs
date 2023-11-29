@@ -66,26 +66,41 @@ namespace PG3302_Eksamen.UI
 
         private void AddMovie()
         {
-            Console.Write("Movie title: ");
-            string title = Console.ReadLine();
+            try
+            {
+                Console.Write("Movie title: ");
+                string title = Console.ReadLine();
 
-            Console.Write("Movie Creator: ");
-            string creator = Console.ReadLine();
+                Console.Write("Movie Creator: ");
+                string creator = Console.ReadLine();
 
-            Console.Write("Release Year: ");
-            int releaseYear = Int32.Parse(Console.ReadLine());
+                Console.Write("Release Year: ");
+                int releaseYear = Int32.Parse(Console.ReadLine());
 
-            Console.Write("Movie Genre: ");
-            string genre = Console.ReadLine();
+                Console.Write("Movie Genre: ");
+                string genre = Console.ReadLine();
 
-            Console.WriteLine("Movie length in minutes: ");
-            int lengthInMinutes = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("Movie length in minutes: ");
+                int lengthInMinutes = Int32.Parse(Console.ReadLine());
 
-            Console.Clear();
+                Console.Clear();
 
-            _movieLogic.AddMovie(title, creator, releaseYear, genre, lengthInMinutes);
+                if (title == "")
+                {
+                    Console.WriteLine("You need to enter a title!");
+                    MovieMenu();
+                    return;
+                }
 
-            MovieMenu();
+                _movieLogic.AddMovie(title, creator, releaseYear, genre, lengthInMinutes);
+
+                MovieMenu();
+            }catch(Exception)
+            {
+                Console.WriteLine("Invalid input!");
+                AddMovie();
+            }
+            
         }
 
         private void BackToMainMenu()

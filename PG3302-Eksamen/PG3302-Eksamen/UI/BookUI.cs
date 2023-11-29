@@ -85,27 +85,43 @@ namespace PG3302_Eksamen.UI
 
         private void AddBook()
         {
-           
-            Console.Write("Book title: ");
-            string title = Console.ReadLine();
-       
-            Console.Write("Book Author: ");
-            string author = Console.ReadLine();
-          
-            Console.Write("Release Year: ");
-           
-            int year = Int32.Parse(Console.ReadLine());
+            try
+            {
+                Console.Write("Book title: ");
+                string title = Console.ReadLine();
 
-            Console.Write("Book Genre: ");
-            string genre = Console.ReadLine();
+                Console.Write("Book Author: ");
+                string author = Console.ReadLine();
 
-            Console.Write("Number of Pages: ");
-            int pages = Int32.Parse(Console.ReadLine());
+                Console.Write("Release Year: ");
 
-            Console.Clear();
-            bookLogic.AddBook(title, author, year, genre, pages);
+                int year = Int32.Parse(Console.ReadLine());
+
+                Console.Write("Book Genre: ");
+                string genre = Console.ReadLine();
+
+                Console.Write("Number of Pages: ");
+                int pages = Int32.Parse(Console.ReadLine());
+
+                Console.Clear();
+
+                if(title == "")
+                {
+                    Console.WriteLine("You need to enter a title!");
+                    BookMenu();
+                    return;
+                }
+
+                bookLogic.AddBook(title, author, year, genre, pages);
+
+                BookMenu();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid input!");
+                AddBook();
+            }
             
-            BookMenu();
 
         }
 

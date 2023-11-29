@@ -284,27 +284,42 @@ namespace PG3302_Eksamen.UI
         
         private void AddSong()
         {
-           
-            Console.Write("Song title: ");
-            string title = Console.ReadLine();
-       
-            Console.Write("Song Artist: ");
-            string creator = Console.ReadLine();
-          
-            Console.Write("Release Year: ");
-           
-            int year = Int32.Parse(Console.ReadLine());
+            try
+            {
+                Console.Write("Song title: ");
+                string title = Console.ReadLine();
 
-            Console.Write("Song Genre: ");
-            string genre = Console.ReadLine();
+                Console.Write("Song Artist: ");
+                string creator = Console.ReadLine();
 
-            Console.Write("Length in seconds: ");
-            int lengthInSeconds = Int32.Parse(Console.ReadLine());
+                Console.Write("Release Year: ");
 
-            Console.Clear();
-            _musicLogic.AddSong(title, creator, year, genre, lengthInSeconds);
+                int year = Int32.Parse(Console.ReadLine());
+
+                Console.Write("Song Genre: ");
+                string genre = Console.ReadLine();
+
+                Console.Write("Length in seconds: ");
+                int lengthInSeconds = Int32.Parse(Console.ReadLine());
+
+                Console.Clear();
+
+                if (title == "")
+                {
+                    Console.WriteLine("You need to enter a title!");
+                    MusicMenu();
+                    return;
+                }
+
+                _musicLogic.AddSong(title, creator, year, genre, lengthInSeconds);
+
+                MusicMenu();
+            }catch(Exception)
+            {
+                Console.WriteLine("Invalid input!");
+                AddSong();
+            }
             
-            MusicMenu();
 
         }
         
