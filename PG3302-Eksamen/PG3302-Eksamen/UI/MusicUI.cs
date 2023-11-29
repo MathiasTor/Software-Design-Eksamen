@@ -305,6 +305,7 @@ namespace PG3302_Eksamen.UI
             Console.Write("Length in seconds: ");
             int lengthInSeconds = Int32.Parse(Console.ReadLine());
 
+            Console.Clear();
             _musicLogic.AddSong(title, creator, year, genre, lengthInSeconds);
             
             MusicMenu();

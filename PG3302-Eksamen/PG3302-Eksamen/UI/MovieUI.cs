@@ -78,10 +78,9 @@ namespace PG3302_Eksamen.UI
             Console.WriteLine("Movie length in minutes: ");
             int lengthInMinutes = Int32.Parse(Console.ReadLine());
 
-            _movieLogic.AddMovie(title, creator, releaseYear, genre, lengthInMinutes);
-
             Console.Clear();
-            Console.WriteLine("Movie added!");
+
+            _movieLogic.AddMovie(title, creator, releaseYear, genre, lengthInMinutes);
 
             MovieMenu();
         }

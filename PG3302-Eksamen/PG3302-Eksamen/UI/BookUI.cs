@@ -101,6 +101,7 @@ namespace PG3302_Eksamen.UI
             Console.Write("Number of Pages: ");
             int pages = Int32.Parse(Console.ReadLine());
 
+            Console.Clear();
             bookLogic.AddBook(title, author, year, genre, pages);
             
             BookMenu();

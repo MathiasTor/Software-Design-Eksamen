@@ -104,6 +104,7 @@ namespace PG3302_Eksamen.UI
             Console.Write("Game Platform: ");
             string platform = Console.ReadLine();
 
+            Console.Clear();
             _gameLogic.AddGame(title, creator, releaseYear, genre, platform);
 
             GameMenu();
