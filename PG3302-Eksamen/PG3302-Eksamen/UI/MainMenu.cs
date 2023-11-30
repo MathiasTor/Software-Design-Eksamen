@@ -41,7 +41,7 @@ namespace PG3302_Eksamen.UI
 
         private void RegisterUser()
         {
-            Console.WriteLine("Please enter username (Back: 0): ");
+            Console.WriteLine("Please enter username (Cancel: 0): ");
             string? username = Console.ReadLine();
 
             if (username == "0")
@@ -82,7 +82,7 @@ namespace PG3302_Eksamen.UI
 
         private void LoginMenu()
         {
-            Console.WriteLine("Please enter username (Back: 0): ");
+            Console.WriteLine("Please enter username (Cancel: 0): ");
             string? username = Console.ReadLine();
 
             if (username == "0")
