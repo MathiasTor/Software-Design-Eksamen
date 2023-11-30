@@ -44,8 +44,9 @@ namespace PG3302_Eksamen.UI
             Console.WriteLine("Please enter username (Back: 0): ");
             string? username = Console.ReadLine();
 
-            if(username == "0")
+            if (username == "0")
             {
+                Console.Clear();
                 RunProgram();
                 return;
             }
@@ -81,8 +82,16 @@ namespace PG3302_Eksamen.UI
 
         private void LoginMenu()
         {
-            Console.WriteLine("Please enter username: ");
+            Console.WriteLine("Please enter username (Back: 0): ");
             string? username = Console.ReadLine();
+
+            if (username == "0")
+            {
+                Console.Clear();
+                RunProgram();
+                return;
+            }
+
             Console.WriteLine("Please enter password: ");
             string? password = Console.ReadLine();
 
