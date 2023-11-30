@@ -41,8 +41,15 @@ namespace PG3302_Eksamen.UI
 
         private void RegisterUser()
         {
-            Console.WriteLine("Please enter username: ");
+            Console.WriteLine("Please enter username (Back: 0): ");
             string? username = Console.ReadLine();
+
+            if(username == "0")
+            {
+                RunProgram();
+                return;
+            }
+
             Console.WriteLine("Please enter email: ");
             string? email = Console.ReadLine();
             Console.WriteLine("Please enter password: ");
